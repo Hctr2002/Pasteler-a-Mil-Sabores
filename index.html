@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, intial-scale=1" />
+        <title>Pasteleria</title>
+        <meta name="descriptions" content="Prototipo HTML para pantallas: ajajaja"/>
+        <!-- AH esa es la estrucuta para las notas xd-->>
+    </head>
+    <>
+        <a href="www.google.com" class="skip link">ejemplo</a>         <!--Con esto se generan hipervinculos -->
+
+        <!-- Header-->
+         <header role="banner">
+            <div class="brand">
+                <h1 aria-label="Pasteleria"></h1>
+                <p  class="tagline">Mercados de los pasteles ajaja</p>
+            </div>
+
+            <nav aria-label="menu principal">
+            <ul>
+                <li><a href="#home"datanav>Inicio</a></li>
+                <li><a href="#Catalogo"datanav>Catalogo</a></li>
+                <li><a href="#Carrito"datanav>Carrito</a></li>
+                <li><a href="#Perfil"datanav>Perfil</a></li>
+                <li><a href="#Blog"datanav>Guia & Ciencia</a></li>
+                <li><a href="#fidelizacion"datanav>Credito REM</a></li>
+                <li><a href="#Ingresar"datanav>Incio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido" tabindex="-1">
+        <!--Pantalla 1: Home / Landing-->
+        < id="home" class="Screen" aria-labelledby="home-title">
+            <h2 id="home-title">Bienvenido a Pasteleria</h2>
+            <p>Crea recuerdos inovidables</p>
+
+            < aria-label="Buscador de pasteles" data-screen="home">
+                <label for="q">¿Que te gustaria comer</label>
+                <input id="q" type="search" placeholder="Milhojas, manjar, tres leches">
+                <button type="submit">Buscar</button>
+            </from>
+
+            <section aria-labelledby="home pateles destacados-title">
+                <h3 id="Home-destacados-title">Desatacados de hoy</h3>
+                <ul class="cards" data-testid="home-destacados">
+                    <li>
+                        <article>
+                            <h4>Milhojas</h4>
+                            <p>Una torta de mil hojas con manjas bañado en chocolate</p>
+                            <a href="#detalle-torta" data-action="ver-detalle" data-id="PS001">Ver detalle</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h4>Milhojas</h4>
+                            <p>Una torta de mil hojas con manjas bañado en chocolate</p>
+                            <a href="#detalle-torta" data-action="ver-detalle" data-id="PS001">Ver detalle</a>
+                        </article>
+                    </li>
+                    <li>
+                        <article>
+                            <h4>Milhojas</h4>
+                            <p>Una torta de mil hojas con manjas bañado en chocolate</p>
+                            <a href="#detalle-torta" data-action="ver-detalle" data-id="PS001">Ver detalle</a>
+                        </article>
+                    </li>
+
+            </section>
+
+            <section id="Catalogo" class="screen" aria-labelledby="Catalogo-title"></section>
+                <h2 id="Catalogo-title>Catalogo de sueños</h2>
+        </main>
+    </body>
+</html>
