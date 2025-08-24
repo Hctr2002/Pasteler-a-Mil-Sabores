@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+
 <html lang= "es"> 
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, intial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Dulces delicias</title>
         <meta name="descriptions" content="Prototipo HTML y CSS "/>
-        <!-- AH esa es la estrucuta para las notas xd-->>
+        <!-- AH esa es la estrucuta para las notas xd-->
+         <link rel="stylesheet"href="style.css">
     </head>
 
      <!-- Pantalla principal--> 
@@ -27,7 +28,7 @@
     </header>
 
     <!-- Pantalla de personalizacion-->
-Caso_pasteles_grupo_3    <main id="contenido" tabindex="-1">
+        <main id="contenido" tabindex="-1">
         <section id="Personalizacion" class="screen" aria-labelledby="home-tittle">
             <h2 id="home-tittle">Bienvenido a Dulces delicias</h2> 
             <h3 id="home-personalizacion-tittle">Personaliza tu pastel</h3>
@@ -120,9 +121,9 @@ Caso_pasteles_grupo_3    <main id="contenido" tabindex="-1">
             </aside>
     </section>
 
-    <!--Carro de compra-->
+    <!--Reseña clientes-->
     
-    <section aria-labelledby="Reseñas-tittle">
+    <section aria-labelledby="Resenas-tittle">
         <h2 id="Reseñas">Reseñas</h2>
         <p>Revisa las opiñiones de nuestros clientes</p>
         <ul class="grid" data-test-id="Reseñas">
@@ -133,9 +134,104 @@ Caso_pasteles_grupo_3    <main id="contenido" tabindex="-1">
                         <p class="meta">Pastel seleccionado: Pastel 3 leches •  Calificacion: ★★★</p>
                     </header>
                     <P>Reseña: La mejor torta que e tenido la dicha de probar</P>
+            </li>  
+            <li>
+                    <header>
+                        <h4>Ana Maria </h4>
+                        <p class="meta">Pastel seleccionado: Pastel mil hojas •  Calificacion: ★★</p>
+                    </header>
+                    <P>Reseña: La torta le falta un poco mas de manjar</P>
                 </article>
             </li>
     </section>
 
+    <!--Detalle del pastel-->
 
-    </main>
+            <section id="detalle-torta" class="screen" aria-labelledby="detalle-tittle">
+            <h2 id="detalle-tittle">Detalle del Pastel</h2>
+            <article data-id="DP002">
+                <header>
+                    <h3>Torta tres leches</h3>
+                    <p class="meta">Nivel de azucar: media • Nivel de popularidad:★★★</p> 
+                </header>
+                <p>Bizcocho empapado en una mezcla de leches (evaporada, condensada y crema), cubierta con merengue o chantilly</p>
+
+                <form aria-label = "Opciones extra del pastel" data-screen="detalle-screen="detalle-extra></form>
+                <fieldset>
+                    <legend>Elige opciones extra</legend>
+                        <select id="extras-tresleches" name="extras[]" multiple aria-describedby="extra-help">
+                        <option value="Sin lactosa">Sin lactosa</option>
+                        <option value="Sin gluten">Sin gluten</option>
+                        <option value="Vegana">Vegana</option>
+                    </select>
+                    <small id="extra-help">Mantén presionado Ctrl o Cmd para seleccionar varios.</small>
+                </fieldset>
+
+                <button type="submit">Agregar al Carrito</button>
+
+            </article>
+
+             <article data-id="DP001">
+                <header>
+                    <h3>Torta mil hojas</h3>
+                    <p class="meta">Nivel de azucar: media • Nivel de popularidad:★★</p> 
+                </header>
+                <p>Capas crujientes de hojaldre con manjar cremoso, un clásico dulce y delicioso</p>
+
+                <form aria-label = "Opciones extra del pastel" data-screen="detalle-screen="detalle-extra></form>
+                       
+                <fieldset>
+                    <legend>Elige opciones extra</legend>
+                        <select id="extras-milhojas" name="extras[]" multiple aria-describedby="extra-help">
+                        <option value="Sin lactosa">Sin lactosa</option>
+                        <option value="Sin gluten">Sin gluten</option>
+                        <option value="Vegana">Vegana</option>
+                    </select>
+                    <small id="extra-help">Mantén presionado Ctrl o Cmd para seleccionar varios.</small>
+                </fieldset>
+                <button type="submit">Agregar al Carrito</button>
+
+            </article>
+
+    <!-- Carro de compra -->
+        </section id="carrito" class="screen" aria-labelledby="carrito-tittle">
+            <h2 id="carrito-tittle">Resumen de tus compras</h2>
+
+            <table aria-describedby="carrito resumen">
+                <caption id="carrito-resumen">Resumen de tus tortas seleccionadas</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Torta selccionada</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Nivel de azucar</th>
+                        <th scope="col">Tamaño</th>
+                        <th scope="col">Extras</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Torta mil hojas</td>
+                        <td>Torta pre-fabricada</td>
+                        <td>Alto</td>
+                        <td>10 porciones</td>
+                        <td>sin lactosa</td>
+                        <td>$25.000</td>
+                        <td>
+                            <a href="#" data-action="editar">Editar</a>
+                            <a href="#" data-action="eliminar">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <footer>
+                    <tr>
+                        <td colspan="6">Total</td>
+                        <td>$25.000</td>
+                        <td><a href="#chekout" data-action="pagar">Ir a pagar</a></td>
+                    </tr>
+                </footer>
+            
+            </table>
+
+    </main>             

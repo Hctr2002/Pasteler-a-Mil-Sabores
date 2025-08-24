@@ -1,0 +1,30 @@
+/*
+Pastelería Dulces Delicias - style.css
+Hoja de estilo base y componentes para el prototipo de HTML
+*/
+
+/* Reset + variables */
+:root {
+    --bg: #FFF5E1;         
+    --surface: #FFEBD9;    
+    --surface-2: #F2D4AC;  
+    --text: #4A2C14;       
+    --text-2: #8A6F4D;    
+    --accent: #F2D4AC;     
+    --muted: #A58D89;      
+    --border: #E3C9A9;     
+    --success: #A6D6A3;    
+    --warning: #FFD580;    
+    --danger: #FF8F9C;     
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(229, 208, 176, 0.4);  /* Sombra suave beige */
+    --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-sans);
+    background: radial-gradient(1200px 800px at 20% -10%, rgba(255, 245, 100, 0.15), transparent),
+                radial-gradient(1200px 800px at 120% -10%, rgba(223, 243, 136, 0.1), transparent),
+                var(--bg);
+}
