@@ -27,4 +27,39 @@ body {
     background: radial-gradient(1200px 800px at 20% -10%, rgba(255, 245, 100, 0.15), transparent),
                 radial-gradient(1200px 800px at 120% -10%, rgba(223, 243, 136, 0.1), transparent),
                 var(--bg);
+    color: var(--text);
+    line-height:1.6;
 }
+
+img{ max-width: 100%; display:block;}
+input, select, textarea, button{ font: inherit; color: inherit;}
+
+.skip-link{
+    position:absolute; left:-9999px; top:auto; width:1px; height: 1px; overflow:hidden;
+
+}
+
+.skip-link:focus{ position:static;width:auto;height:auto;padding:.5rem 1rem;background:var(--accent);color:#fff;}
+
+header[role="banner"]{
+    position: sticky; top:0; z-index: 50;
+    display: grid; gap: .5rem; align-items:center;
+    grid-template-columns: 1fr; padding: 1rem;
+    background: linear-gradient(0deg, rgba(240, 229, 150, 0.76), rgba(247, 235, 181, 0.7));
+    background-filter: blur(6px);
+    border-bottom: 1px solid var(--border) ;
+}
+
+header .brand h1 {margin:0; font-size: 1.5rem;}
+header .brand .tagline { margin: .125rem 0 0; color: var(--muted); font-size: .9rem; }
+header nav ul {
+    margin: .5rem 0 0; padding: 0; list-style: none;
+    display: flex; flex-wrap: wrap; gap: .5rem;
+}
+
+header nav a {
+    text-decoration:none ; color:var(--text);
+    padding: .5rem .75rem; border: 1px solid var(--border);
+    border-radius: var(--radius); transition: background .2s, color .2, border-color .2s;
+} 
+
