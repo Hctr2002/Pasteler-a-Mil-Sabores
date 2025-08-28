@@ -1,18 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Elementos del DOM
     const tbody = document.querySelector("tbody");
     const tfoot = document.querySelector("tfoot td:nth-child(2)");
+    const carritoContainer = document.getElementById("carrito-container");
+    const botonesAgregar = document.querySelectorAll(".agregar-carrito");
 
-    // Recuperar productos del localStorage
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    // Funciones de carrito
+    function getCarrito() {
+        return JSON.parse(localStorage.getItem("carrito")) || [];
+    }
 
-    function renderCarrito() {
-        tbody.innerHTML = ""; // Limpiar tabla
+    function saveCarrito(carrito) {
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    }
+
+    function renderTablaCarrito() {
+        const carrito = getCarrito();
+        tbody.innerHTML = "";
         let total = 0;
 
         carrito.forEach((item, index) => {
             const row = document.createElement("tr");
 
-            // Valores por defecto si no existen
+            // Valores por defecto
             const tamano = item.tamano || "14/16 Personas";
             const extras = item.extras || "Ninguno";
 
@@ -35,16 +45,89 @@ document.addEventListener("DOMContentLoaded", () => {
         tfoot.textContent = `$${total.toLocaleString()}`;
     }
 
+    function renderCarritoPage() {
+        if (!carritoContainer) return;
 
-    // Acción eliminar
-    tbody.addEventListener("click", (e) => {
-        if (e.target.dataset.action === "eliminar") {
-            const index = e.target.dataset.index;
-            carrito.splice(index, 1);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-            renderCarrito();
+        const carrito = getCarrito();
+        carritoContainer.innerHTML = "";
+
+        if (carrito.length === 0) {
+            carritoContainer.innerHTML = "<p>Tu carrito está vacío 🛒</p>";
+            return;
         }
+
+        let total = 0;
+        carrito.forEach((item, index) => {
+            const subtotal = item.precio * item.cantidad;
+            total += subtotal;
+
+            carritoContainer.innerHTML += `
+                <div class="carrito-item">
+                    <p><strong>${item.nombre}</strong> (${item.categoria}, ${item.tipo})</p>
+                    <p>Cantidad: ${item.cantidad}</p>
+                    <p>Precio: $${item.precio.toLocaleString()}</p>
+                    <p>Subtotal: $${subtotal.toLocaleString()}</p>
+                    <button class="eliminar-item" data-index="${index}">❌ Eliminar</button>
+                    <hr>
+                </div>
+            `;
+        });
+
+        carritoContainer.innerHTML += `<h3>Total: $${total.toLocaleString()}</h3>`;
+
+        // Manejo de eliminar producto
+        carritoContainer.querySelectorAll(".eliminar-item").forEach(boton => {
+            boton.addEventListener("click", () => {
+                const carrito = getCarrito();
+                carrito.splice(boton.dataset.index, 1);
+                saveCarrito(carrito);
+                renderCarritoPage(); // Actualiza la vista sin recargar
+            });
+        });
+    }
+
+    
+    // Eventos
+
+    // Eliminar desde la tabla
+    if (tbody) {
+        tbody.addEventListener("click", (e) => {
+            if (e.target.dataset.action === "eliminar") {
+                const carrito = getCarrito();
+                carrito.splice(e.target.dataset.index, 1);
+                saveCarrito(carrito);
+                renderTablaCarrito();
+            }
+        });
+    }
+
+    // Agregar productos desde catálogo
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const producto = {
+                id: boton.dataset.id,
+                nombre: boton.dataset.nombre,
+                categoria: boton.dataset.categoria,
+                tipo: boton.dataset.tipo,
+                precio: parseFloat(boton.dataset.precio),
+                cantidad: 1
+            };
+
+            const carrito = getCarrito();
+            const index = carrito.findIndex(item => item.id === producto.id);
+
+            if (index >= 0) {
+                carrito[index].cantidad += 1;
+            } else {
+                carrito.push(producto);
+            }
+
+            saveCarrito(carrito);
+            alert(`${producto.nombre} agregado al carrito ✅`);
+        });
     });
 
-    renderCarrito();
+    // Inicialización
+    renderTablaCarrito();
+    renderCarritoPage();
 });
