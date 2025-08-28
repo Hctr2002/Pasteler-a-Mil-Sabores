@@ -2,9 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
 
     if (!usuario) {
-      alert("No hay sesión activa");
-      window.location.href = "../pages/login.html";
-      return;
+        alert("No hay sesión activa");
+        window.location.href = "../pages/login.html";
+        return;
     }
 
 

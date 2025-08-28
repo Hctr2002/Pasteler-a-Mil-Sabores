@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <header role="banner">
@@ -29,90 +27,67 @@
             </ul>
         </nav>
     </header>
-    <script src="../js/app.js"></script>
+
+    <main id="carrito-page" tabindex="-1">
+        <section class="screen" aria-labelledby="carrito-title">
+            <h2 id="carrito-title">Tu Carrito</h2>
+            <table aria-describedby="carrito-resumen">
+                <caption id="carrito-resumen">Resumen de tus pasteles seleccionados</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Pastel</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Tamaño</th>
+                        <th scope="col">Extras</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="carrito-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Total</td>
+                        <td id="carrito-total">$0</td>
+                        <td><a href="#checkout" data-action="pagar">Ir a Pagar</a></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+
+    <footer role="contentinfo" aria-label="Pie de página" class="footer" id="footer" tabindex="-1">
+        <div class="footer-content">
+            <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+            <p>Diseñado por Héctor Robledo, Jose Luis Medina e Iván Del Pino</p>
+            <nav aria-label="Enlaces de pie de página">
+                <ul>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                    <li><a href="terminos.html">Términos de servicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com" aria-label="Facebook" target="_blank">
+                <img src="../images/facebook-icon.png" alt="Facebook" width="28" height="28">
+            </a>
+            <a href="https://x.com" aria-label="x" target="_blank">
+                <img src="../images/x-icon.png" alt="x" width="28" height="28">
+            </a>
+            <a href="https://instagram.com" aria-label="Instagram" target="_blank">
+                <img src="../images/instagram-icon.png" alt="Instagram" width="28" height="28">
+            </a>
+        </div>
+        <div class="footer-legal">
+            <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.</p>
+        </div>
+        <div class="footer-back-to-top">
+            <a href="#top" class="back-to-top">Volver arriba</a>
+        </div>
+    </footer>
+
+    <script src="../js/app.js" defer></script>
+    <script src="../js/carrito.js" defer></script>
 </body>
-
-<main id="carrito" tabindex="-1">
-    <section id="carrito" class="screen" aria-labelledby="carrito-title">
-        <h2 id="carrito-title">Tu Carrito</h2>
-        <table aria-describedby="carrito-resumen">
-            <caption id="carrito-resumen">Resumen de tus pasteles seleccionados</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Pastel</th>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Tamaño</th>
-                    <th scope="col">Extras</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Pastel de Chocolate</td>
-                    <td>Chocolate</td>
-                    <td>Redondo</td>
-                    <td>10/12 Personas</td>
-                    <td>Sin Extras</td>
-                    <td>$29.990</td>
-                    <td>
-                        <a href="#" data-action="editar">Editar</a>
-                        <a href="#" data-action="eliminar">Eliminar</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pastel Tres Leches</td>
-                    <td>Tradicionales</td>
-                    <td>Cuadrado</td>
-                    <td>18/20 Personas</td>
-                    <td>Extra crema</td>
-                    <td>$49.990</td>
-                    <td>
-                        <a href="#" data-action="editar">Editar</a>
-                        <a href="#" data-action="eliminar">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="5">Total</td>
-                    <td>$79.980</td>
-                    <td><a href="#checkout" data-action="pagar">Ir a Pagar</a></td>
-                </tr>
-            </tfoot>
-        </table>
-    </section>
-</main>
-
-<footer role="contentinfo" aria-label="Pie de página" class="footer" id="footer" tabindex="-1">
-    <div class="footer-content">
-        <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
-        <p>Diseñado por Héctor Robledo, Jose Luis Medina e Iván Del Pino</p>
-        <nav aria-label="Enlaces de pie de página">
-            <ul>
-                <li><a href="privacidad.html">Política de privacidad</a></li>
-                <li><a href="terminos.html">Términos de servicio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="footer-social">
-        <a href="https://facebook.com" aria-label="Facebook" target="_blank">
-            <img src="../images/facebook-icon.png" alt="Facebook" width="28" height="28">
-        </a>
-        <a href="https://x.com" aria-label="x" target="_blank">
-            <img src="../images/x-icon.png" alt="x" width="28" height="28">
-        </a>
-        <a href="https://instagram.com" aria-label="Instagram" target="_blank">
-            <img src="../images/instagram-icon.png" alt="Instagram" width="28" height="28">
-        </a>
-    </div>
-    <div class="footer-legal">
-        <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.</p>
-    </div>
-    <div class="footer-back-to-top">
-        <a href="#top" class="back-to-top">Volver arriba</a>
-    </div>
-</footer>
 </html>
