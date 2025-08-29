@@ -6,10 +6,10 @@ Hoja de estilo base y componentes para el prototipo de HTML
 /* Reset + variables */
 :root {
     --bg: #FFF5E1;         
-    --surface: #FFEBD9;    
-    --surface-2: #F2D4AC;  
+    --surface: #fff5e1;    
+    --surface-2: #fef3d5;  
     --text: #4A2C14;       
-    --text-2: #8A6F4D;    
+    --text-2: #50381a;    
     --accent: #F2D4AC;     
     --muted: #A58D89;      
     --border: #E3C9A9;     
@@ -24,7 +24,7 @@ Hoja de estilo base y componentes para el prototipo de HTML
 body {
     margin: 0;
     font-family: var(--font-sans);
-    background: radial-gradient(1200px 800px at 20% -10%, rgba(255, 245, 100, 0.15), transparent),
+    background: radial-gradient(1200px 800px at 20% -10%, rgba(253, 202, 35, 0.575), transparent),
                 radial-gradient(1200px 800px at 120% -10%, rgba(223, 243, 136, 0.1), transparent),
                 var(--bg);
     color: var(--text);
@@ -40,6 +40,8 @@ input, select, textarea, button{ font: inherit; color: inherit;}
 }
 
 .skip-link:focus{ position:static;width:auto;height:auto;padding:.5rem 1rem;background:var(--accent);color:#fff;}
+
+/* banner de la pagina */
 
 header[role="banner"]{
     position: sticky; top:0; z-index: 50;
@@ -63,3 +65,87 @@ header nav a {
     border-radius: var(--radius); transition: background .2s, color .2, border-color .2s;
 } 
 
+header nav a:hover{ background: var(--surface-2); border-color: #8A6F4D;} 
+
+main { width: min(1100 px, 100%); margin: 0 auto; padding: 1.25rem;}/* mantiene el menu fijo */ 
+.screen { margin: clamp(1rem, 2.5vw, 2rem) 0; padding: clamp(1rem, 2vw, 2rem);
+    background: linear-gradient(135deg, var(#f3da5f), var(#ebbf50));
+    border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+.screen h2{ margin-top: 0; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+.screen h3{ margin-top: 0; font-size: clamp(1.15rem, 2.5vw, 1.4rem); color: var(--text-2); }
+.meta{ color: var(--muted); font-size: .9rem; }
+
+/* tarjetas en general esto afecta a todos los sub cuadrados por decirlo de alguna manera*/
+.cards, .grid { list-style: none; margin:0; padding: 0; display: grid; gap: 0 rem;}
+.cards li article, .grid li aeticle{
+padding: 1rem; border: 1px solid var(--border); border-radius: calc(var(--radius) - 4px);
+background: linear-gradient(135deg, var(--surface), var(--surface-2));
+}
+.cards li article, .grid li article a{
+display: inline-block;margin-right: 5.rem; margin-top: 3rem; /*Esto modifica los pasteles mas populares*/
+text-decoration: none; color: var(--text); background: linear-gradient(135deg, var(--surface), var(--surface-2));
+padding: .5rem 1rem; border-radius: calc(var(--radius) - 4px);
+}
+.cards li article a:hover, .grid li article a:focus{ filter: brightness(1.05);}
+
+
+/*@media (min-width: 640px){ .cards}
+@media (min-width: 900px){}
+@media (min-width: 720px){}
+@media (min-width: 1100px){}
+/* forumalarios */
+
+/* tablas de contenid0 */ 
+
+/* Estilo para el input de sabor */
+.input-sabor {
+    width: 250px; /* más angosta */
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
+
+/* Botones ajustados a la paleta de colores */
+.botones {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.boton-primario,
+.boton-secundario {
+    padding: 0.4rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón "Seleccionar" */
+.boton-primario {
+    background-color: var(--accent);
+    color: var(--text);
+}
+
+.boton-primario:hover {
+    background-color: #eac48c;
+    transform: scale(1.02);
+}
+
+/* Botón "Borrar" */
+.boton-secundario {
+    background-color: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.boton-secundario:hover {
+    background-color: #f3e2b7;
+    transform: scale(1.02);
+}

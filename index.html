@@ -34,6 +34,8 @@
             <h3 id="home-personalizacion-tittle">Personaliza tu pastel</h3>
             <p>Personaliza tus pasteles y explora otro nivel de sabores</p>
 
+            <div class = "cards">
+
              <!--Para elegir tamaños-->
             <form aria-label = "Personalizacion de pasteles" data-screen="Personalizacion">
                 <p>¿Qué porción necesita?</p>
@@ -49,24 +51,43 @@
                     <input type="checkbox" name="porcion" value="grande">
                          Grande (10-12 Porciones)
                 </label> &nbsp;&nbsp;
-            </form> <br>
+            </form> 
+            
 
 
             <!--Para elegir sabores-->
-                <label for="q">¿Que sabor principal quieres?</label>
-                <input id ="q" name="q" type="search" placeholder="frutilla, naranja, piña, durazno, mango">
-                <button type="reset">Borrar</button> <button type="submit">Seleccionar</button>
-            </form> <br> <br>
-      
+                <div class="busqueda-sabor">
+                    <label for="q">¿Qué sabor principal quieres?</label> <br> <br>
+                    
+                    <input
+                     id="q"
+                     name="q"
+                     type="search"
+                     class="input-sabor"
+                    placeholder="frutilla, naranja, piña, durazno"
+                    > 
+                
+                    <div class="botones">
+                    <button type="reset" class="boton-secundario">Borrar</button>
+                    <button type="submit" class="boton-primario">Seleccionar</button>
+                 </div>
+                </div>
+                
+                
+                <br>
 
             <!--Para elegir nivel de azucar-->
-                <label for="q">¿Cual es el nivel de azucar que quieres?</label>
-                <select name="Nivel" id="Nivel">
+        
+                 <div class="nivel-azucar">
+                    <label for="Nivel">¿Cuál es el nivel de azúcar que quieres?</label> <br>
+                <select name="Nivel" id="Nivel" class="select-azucar">
                     <option value="suave">Suave</option>
                     <option value="Medio">Media</option>
                     <option value="Alto">Alta</option>
                 </select>
-
+            </div>
+            </div>
+            <br>
     <!-- Pantalla de tortas destacados-->
         <section aria-labelledby="home-destacados-tittle">
             <h3 id="home-destacados-tittle">Pasteles mas populares</h3>
