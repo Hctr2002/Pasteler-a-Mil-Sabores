@@ -196,6 +196,19 @@ RESPONSIVE TWEAKS
     header nav ul { justify-content: flex-end; }
 }
 
+/* En móviles mostramos solo columnas clave */
+@media (max-width: 768px) {
+  table th:nth-child(2), /* Categoría */
+  table td:nth-child(2),
+  table th:nth-child(3), /* Tipo */
+  table td:nth-child(3),
+  table th:nth-child(5), /* Extras */
+  table td:nth-child(5) {
+    display: none;
+  }
+}
+
+
 /* ==========================
 LIGHT MODE (opcional)
 ========================== */
