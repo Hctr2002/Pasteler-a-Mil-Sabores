@@ -30,58 +30,59 @@
             </ul>
         </nav>
     </header>
+    <main id="detalle-pastel" tabindex="-1">
+        <section id="detalle-pastel" class="screen" aria-labelledby="detalle-title">
+                <h2 id="detalle-title">Detalle Pastel de Chocolate</h2>
+                <article data-id="DS101">
+                    <header>
+                        <h3>Pastel de Chocolate</h3>
+                        <img src="../images/pastel-chocolate.png" alt="Pastel de Chocolate" width="500">
+                        <p class="meta">Categoría: chocolate • Tipo: Redondo • Opiniones: ★★★★★</p>
+                    </header>
+                    <p>Delicioso pastel de chocolate con relleno de crema de chocolate y cobertura de ganache</p>
+
+                    <form aria-label="Personalización del pastel" data-screen="detalle-config">
+                        <fieldset>
+                            <legend>Personaliza tu experiencia</legend>
+                            <label for="tipo-pastel">Tipo: </label>
+                            <select name="tipo-pastel" id="tipo-pastel">
+                                <option>Seleccione una opción</option>
+                                <option value="redondo">Redondo</option>
+                                <option value="cuadrado">Cuadrado</option>
+                            </select>
+                            <label for="tamano-pastel">Tamaño: </label>
+                            <select name="tamano-pastel" id="tamano-pastel">
+                                <option>Seleccione una opción</option>
+                                <option value="6/8">De 6/8 personas</option>
+                                <option value="10/12">De 10/12 personas</option>
+                                <option value="14/16">De 14/16 personas</option>
+                                <option value="18/20">De 18/20 personas</option>
+                            </select>
+                            <label for="extras">Extras</label>
+                            <select name="extras" id="extras" multiple aria-describedby="extra-help">
+                                <option value="extra-chocolate">Extra chocolate</option>
+                                <option value="extra-chips">Extra chips</option>
+                                <option value="extra-manjar">Extra manjar</option>
+                                <option value="sin-extras">Sin extras</option>
+                            </select>
+                            <small id="extra-help">Mantén presionado Ctrl o (Cmd) para seleccionar varios.</small>
+                        </fieldset>
+                        <button class="btn-chocolate" type="submit">Agregar al carrito</button>
+                    </form>
+
+                    <section aria-labelledby="resenas-title">
+                        <h4 id="resenas-title">Reseñas</h4>
+                        <ul>
+                            <li><strong>Ana</strong> ★★★★★ - "El mejor pastel sin dudarlo, muy rico".</li>
+                            <li><strong>Marco</strong> ★★★★★ - "Me gustó de sabor, textura y todo".</li>
+                        </ul>
+                    </section>
+                </article>
+            </section>
+    </main>
     <script src="../js/app.js"></script>
+    <script src="../js/catalogo.js"></script>
 </body>
-<main id="detalle-pastel" tabindex="-1">
-    <section id="detalle-pastel" class="screen" aria-labelledby="detalle-title">
-            <h2 id="detalle-title">Detalle Pastel de Chocolate</h2>
-            <article data-id="DS101">
-                <header>
-                    <h3>Pastel de Chocolate</h3>
-                    <img src="../images/pastel-chocolate.png" alt="Pastel de Chocolate" width="500">
-                    <p class="meta">Categoría: chocolate • Tipo: Redondo • Opiniones: ★★★★★</p>
-                </header>
-                <p>Delicioso pastel de chocolate con relleno de crema de chocolate y cobertura de ganache</p>
-
-                <form aria-label="Personalización del pastel" data-screen="detalle-config">
-                    <fieldset>
-                        <legend>Personaliza tu experiencia</legend>
-                        <label for="tipo-pastel">Tipo: </label>
-                        <select name="tipo-pastel" id="tipo-pastel">
-                            <option>Seleccione una opción</option>
-                            <option value="redondo">Redondo</option>
-                            <option value="cuadrado">Cuadrado</option>
-                        </select>
-                        <label for="tamano-pastel">Tamaño: </label>
-                        <select name="tamano-pastel" id="tamano-pastel">
-                            <option>Seleccione una opción</option>
-                            <option value="6/8">De 6/8 personas</option>
-                            <option value="10/12">De 10/12 personas</option>
-                            <option value="14/16">De 14/16 personas</option>
-                            <option value="18/20">De 18/20 personas</option>
-                        </select>
-                        <label for="extras">Extras</label>
-                        <select name="extras" id="extras" multiple aria-describedby="extra-help">
-                            <option value="extra-chocolate">Extra chocolate</option>
-                            <option value="extra-chips">Extra chips</option>
-                            <option value="extra-manjar">Extra manjar</option>
-                            <option value="sin-extras">Sin extras</option>
-                        </select>
-                        <small id="extra-help">Mantén presionado Ctrl o (Cmd) para seleccionar varios.</small>
-                    </fieldset>
-                    <button type="submit" data-action="agregar">Agregar al carrito</button>
-                </form>
-
-                <section aria-labelledby="resenas-title">
-                    <h4 id="resenas-title">Reseñas</h4>
-                    <ul>
-                        <li><strong>Ana</strong> ★★★★★ - "El mejor pastel sin dudarlo, muy rico".</li>
-                        <li><strong>Marco</strong> ★★★★★ - "Me gustó de sabor, textura y todo".</li>
-                    </ul>
-                </section>
-            </article>
-        </section>
-</main>
 <footer role="contentinfo" aria-label="Pie de página" class="footer" id="footer" tabindex="-1">
     <div class="footer-content">
         <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>

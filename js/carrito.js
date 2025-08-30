@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
             tbody.appendChild(row);
-            total += item.precio;
+            total += (item.precio * (item.cantidad || 1));
+
         });
 
         tfoot.textContent = `$${total.toLocaleString()}`;

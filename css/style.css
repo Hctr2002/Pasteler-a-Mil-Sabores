@@ -196,17 +196,19 @@ RESPONSIVE TWEAKS
     header nav ul { justify-content: flex-end; }
 }
 
-/* En móviles mostramos solo columnas clave */
+/* En móviles ocultamos columnas no esenciales SOLO en thead y tbody */
 @media (max-width: 768px) {
-  table th:nth-child(2), /* Categoría */
-  table td:nth-child(2),
-  table th:nth-child(3), /* Tipo */
-  table td:nth-child(3),
-  table th:nth-child(5), /* Extras */
-  table td:nth-child(5) {
+  table thead th:nth-child(2),
+  table tbody td:nth-child(2), /* Categoría */
+  table thead th:nth-child(3),
+  table tbody td:nth-child(3), /* Tipo */
+  table thead th:nth-child(5),
+  table tbody td:nth-child(5) { /* Extras */
     display: none;
   }
 }
+
+
 
 
 /* ==========================

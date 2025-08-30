@@ -1,18 +1,68 @@
-function agregarAlCarrito(producto) {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito.push(producto);
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("Producto agregado al carrito!");
+// util: leer y guardar carrito
+function getCarrito() {
+    return JSON.parse(localStorage.getItem("carrito") || "[]");
+}
+function saveCarrito(c) {
+    localStorage.setItem("carrito", JSON.stringify(c));
 }
 
-// Ejemplo de uso:
-document.querySelector("#btn-chocolate").addEventListener("click", () => {
-    agregarAlCarrito({
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("form[data-screen='detalle-config']");
+    if (!form) return;
+
+    const article = form.closest("article");
+    const productId = article?.dataset.id || "SIN_ID";
+
+    // precios por tamaño (ajústalos a tu realidad)
+    const preciosPorTamano = {
+        "6/8": 19990,
+        "10/12": 25990,
+        "14/16": 29990,
+        "18/20": 34990
+    };
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const tipo = document.getElementById("tipo-pastel").value;
+        const tamano = document.getElementById("tamano-pastel").value;
+        const extrasSel = document.getElementById("extras");
+        const extrasArr = Array.from(extrasSel.selectedOptions).map(o => o.value);
+
+        const precio = preciosPorTamano[tamano] ?? 29990;
+
+        // clave única por variante (id + tipo + tamaño + extras)
+        const varianteKey = `${productId}|${tipo}|${tamano}|${extrasArr.sort().join("+")}`;
+
+        const producto = {
+        id: varianteKey,                   // importante p/ no mezclar variantes
+        baseId: productId,                 // id del modelo, por si lo necesitas
         nombre: "Pastel de Chocolate",
         categoria: "Chocolate",
-        tipo: "Redondo",
-        tamano: "10/12 Personas",
-        extras: "Sin Extras",
-        precio: 29990
+        tipo,
+        tamano: `${tamano} Personas`,
+        extras: extrasArr.length ? extrasArr.join(", ") : "Ninguno",
+        precio,
+        cantidad: 1
+        };
+
+        const carrito = getCarrito();
+        const idx = carrito.findIndex(p => p.id === producto.id);
+
+        if (idx >= 0) {
+        carrito[idx].cantidad += 1;
+        } else {
+        carrito.push(producto);
+        }
+
+        if (`${tamano}` === "Seleccione una opción" || `${tipo}` === "Seleccione una opción" ) {
+            alert("Por favor, selecciona una opción válida.");
+            return;
+        }else {
+            saveCarrito(carrito);
+            alert("Producto agregado al carrito ✅");
+        }
+
+        
     });
 });

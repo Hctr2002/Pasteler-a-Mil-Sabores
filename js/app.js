@@ -15,5 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
             loginLink.href = estaEnPages ? "login.html" : "pages/login.html";
         }
     }
+
+    function ajustarColspanTotal() {
+        const ancho = window.innerWidth;
+        const celdaTotal = document.getElementById("celda-total");
+        if (celdaTotal) {
+            if (ancho < 768) {
+                celdaTotal.setAttribute("colspan", "2");
+            } else {
+                celdaTotal.setAttribute("colspan", "5");
+            }
+        }
+    }
+
+    window.addEventListener("resize", ajustarColspanTotal);
+    window.addEventListener("load", ajustarColspanTotal);
+    
     
 });
