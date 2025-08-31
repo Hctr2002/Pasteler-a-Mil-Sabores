@@ -196,15 +196,33 @@ RESPONSIVE TWEAKS
     header nav ul { justify-content: flex-end; }
 }
 
-/* En móviles ocultamos columnas no esenciales SOLO en thead y tbody */
-@media (max-width: 768px) {
-  table thead th:nth-child(3),
-  table tbody td:nth-child(3), /* Categoría */
-  table thead th:nth-child(4),
-  table tbody td:nth-child(4), /* Tipo */
-  table thead th:nth-child(6),
-  table tbody td:nth-child(6) { /* Extras */
-    display: none;
+    
+
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none; /* ocultamos cabecera */
+  }
+
+  tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 10px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
   }
 }
 

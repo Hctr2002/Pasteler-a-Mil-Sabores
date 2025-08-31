@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const extras = item.extras || "Ninguno";
 
             row.innerHTML = `
-                <td>${item.cantidad || 1}</td>
-                <td>${item.nombre}</td>
-                <td>${item.categoria}</td>
-                <td>${item.tipo || "Redondo"}</td>
-                <td>${tamano}</td>
-                <td>${extras}</td>
-                <td>$${item.precio.toLocaleString()}</td>
-                <td>
+                <td  data-label="N°">${item.cantidad || 1}</td>
+                <td data-label="Nombre">${item.nombre}</td>
+                <td data-label="Categoria">${item.categoria}</td>
+                <td data-label="Tipo">${item.tipo || "Redondo"}</td>
+                <td data-label="Tamaño">${tamano}</td>
+                <td data-label="Extras">${extras}</td>
+                <td data-label="Precio">$${item.precio.toLocaleString()}</td>
+                <td data-label="Acciones">
                     <a href="#" data-action="eliminar" data-index="${index}">Eliminar</a>
                 </td>
             `;
