@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const varianteKey = `${productId}|${tipo}|${tamano}|${extrasArr.sort().join("+")}`;
 
         const producto = {
-        id: varianteKey,                   // importante p/ no mezclar variantes
-        baseId: productId,                 // id del modelo, por si lo necesitas
+        id: varianteKey,
+        baseId: productId,
         nombre: "Pastel de Chocolate",
         categoria: "Chocolate",
         tipo,
