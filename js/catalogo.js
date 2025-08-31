@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const article = form.closest("article");
     const productId = article?.dataset.id || "SIN_ID";
+    const nombre = article.querySelector(".nombre-pastel")?.textContent.trim() || "Pastel sin nombre";
+    const categoria = article.querySelector(".nombre-categoria")?.textContent.trim() || "Categoría desconocida";
 
     // precios por tamaño (ajústalos a tu realidad)
     const preciosPorTamano = {
@@ -37,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const producto = {
         id: varianteKey,
         baseId: productId,
-        nombre: "Pastel de Chocolate",
-        categoria: "Chocolate",
+        nombre,
+        categoria,
         tipo,
         tamano: `${tamano} Personas`,
         extras: extrasArr.length ? extrasArr.join(", ") : "Ninguno",

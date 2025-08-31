@@ -198,12 +198,12 @@ RESPONSIVE TWEAKS
 
 /* En móviles ocultamos columnas no esenciales SOLO en thead y tbody */
 @media (max-width: 768px) {
-  table thead th:nth-child(2),
-  table tbody td:nth-child(2), /* Categoría */
   table thead th:nth-child(3),
-  table tbody td:nth-child(3), /* Tipo */
-  table thead th:nth-child(5),
-  table tbody td:nth-child(5) { /* Extras */
+  table tbody td:nth-child(3), /* Categoría */
+  table thead th:nth-child(4),
+  table tbody td:nth-child(4), /* Tipo */
+  table thead th:nth-child(6),
+  table tbody td:nth-child(6) { /* Extras */
     display: none;
   }
 }

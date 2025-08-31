@@ -23,10 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const row = document.createElement("tr");
 
             // Valores por defecto
-            const tamano = item.tamano || "14/16 Personas";
+            const tamano = item.tamano || "6/8 Personas";
             const extras = item.extras || "Ninguno";
 
             row.innerHTML = `
+                <td>${item.cantidad || 1}</td>
                 <td>${item.nombre}</td>
                 <td>${item.categoria}</td>
                 <td>${item.tipo || "Redondo"}</td>
@@ -64,10 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             carritoContainer.innerHTML += `
                 <div class="carrito-item">
-                    <p><strong>${item.nombre}</strong> (${item.categoria}, ${item.tipo})</p>
-                    <p>Cantidad: ${item.cantidad}</p>
+                    <p>Cantidad: ${item.cantidad}<strong>${item.nombre}</strong> (${item.categoria}, ${item.tipo})</p>
                     <p>Precio: $${item.precio.toLocaleString()}</p>
-                    <p>Subtotal: $${subtotal.toLocaleString()}</p>
                     <button class="eliminar-item" data-index="${index}">❌ Eliminar</button>
                     <hr>
                 </div>

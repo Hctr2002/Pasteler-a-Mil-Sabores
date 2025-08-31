@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const ancho = window.innerWidth;
         const celdaTotal = document.getElementById("celda-total");
         if (ancho < 768) {
-            celdaTotal.setAttribute("colspan", "2");
+            celdaTotal.setAttribute("colspan", "3");
         } else {
-            celdaTotal.setAttribute("colspan", "5");
+            celdaTotal.setAttribute("colspan", "6");
         }
     }
 
