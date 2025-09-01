@@ -18,7 +18,6 @@
             <a href="../index.html"><h1 aria-label="MilSabores">🎂 Mil Sabores</h1></a>
             <p class="tagline">Tu Pastelería favorita donde tenemos justo lo que deseas</p>
         </div>
-
         <nav aria-label="Navegación principal">
             <ul>
                 <li><a href="home.html" data-nav>Inicio</a></li>
@@ -29,58 +28,54 @@
             </ul>
         </nav>
     </header>
+    <main id="terminos-y-servicios" tabindex="-1">
+        <h1>Contáctanos</h1>
+        <p>¿Tienes dudas, pedidos especiales o sugerencias? Escríbenos:</p>
+        <ul>
+            <li>📍 Dirección: Av. Dulzura 1234, Santiago, Chile</li>
+            <li>📞 Teléfono: +56 9 1234 5678</li>
+            <li>✉️ Correo: contacto@milsabores.cl</li>
+        </ul>
+        <form action="enviar_contacto.php" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <label for="email">Correo:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+    <footer role="contentinfo" aria-label="Pie de página" class="footer" id="footer" tabindex="-1">
+        <div class="footer-content">
+            <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+            <p>Diseñado por Héctor Robledo, Jose Luis Medina e Iván Del Pino</p>
+            <nav aria-label="Enlaces de pie de página">
+                <ul>
+                    <li><a href="privacidad.html">Política de privacidad</a></li>
+                    <li><a href="terminos.html">Términos de servicio</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer-social">
+            <a href="https://facebook.com" aria-label="Facebook" target="_blank">
+                <img src="../images/facebook-icon.png" alt="Facebook" width="28" height="28">
+            </a>
+            <a href="https://x.com" aria-label="x" target="_blank">
+                <img src="../images/x-icon.png" alt="x" width="28" height="28">
+            </a>
+            <a href="https://instagram.com" aria-label="Instagram" target="_blank">
+                <img src="../images/instagram-icon.png" alt="Instagram" width="28" height="28">
+            </a>
+        </div>
+        <div class="footer-legal">
+            <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.</p>
+        </div>
+        <div class="footer-back-to-top">
+            <a href="#top" class="back-to-top">Volver arriba</a>
+        </div>
+    </footer>
     <script src="../js/app.js"></script>
 </body>
-
-<main id="terminos-y-servicios" tabindex="-1">
-    <h1>Contáctanos</h1>
-    <p>¿Tienes dudas, pedidos especiales o sugerencias? Escríbenos:</p>
-
-    <ul>
-        <li>📍 Dirección: Av. Dulzura 1234, Santiago, Chile</li>
-        <li>📞 Teléfono: +56 9 1234 5678</li>
-        <li>✉️ Correo: contacto@milsabores.cl</li>
-    </ul>
-
-    <form action="enviar_contacto.php" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        <label for="email">Correo:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        <button type="submit">Enviar</button>
-    </form>
-
-</main>
-<footer role="contentinfo" aria-label="Pie de página" class="footer" id="footer" tabindex="-1">
-    <div class="footer-content">
-        <p>&copy; 2025 Pastelería Mil Sabores. Todos los derechos reservados.</p>
-        <p>Diseñado por Héctor Robledo, Jose Luis Medina e Iván Del Pino</p>
-        <nav aria-label="Enlaces de pie de página">
-            <ul>
-                <li><a href="privacidad.html">Política de privacidad</a></li>
-                <li><a href="terminos.html">Términos de servicio</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="footer-social">
-        <a href="https://facebook.com" aria-label="Facebook" target="_blank">
-            <img src="../images/facebook-icon.png" alt="Facebook" width="28" height="28">
-        </a>
-        <a href="https://x.com" aria-label="x" target="_blank">
-            <img src="../images/x-icon.png" alt="x" width="28" height="28">
-        </a>
-        <a href="https://instagram.com" aria-label="Instagram" target="_blank">
-            <img src="../images/instagram-icon.png" alt="Instagram" width="28" height="28">
-        </a>
-    </div>
-    <div class="footer-legal">
-        <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas nuestra <a href="privacidad.html">política de privacidad</a>.</p>
-    </div>
-    <div class="footer-back-to-top">
-        <a href="#top" class="back-to-top">Volver arriba</a>
-    </div>
-</footer>
 </html>

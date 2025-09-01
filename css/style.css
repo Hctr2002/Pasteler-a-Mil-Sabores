@@ -204,7 +204,7 @@ RESPONSIVE TWEAKS
   }
 
   thead {
-    display: none; /* ocultamos cabecera */
+    display: none;
   }
 
   tr {
@@ -221,8 +221,8 @@ RESPONSIVE TWEAKS
   }
 
   tfoot{
-    display: block;       /* que ocupe toda la fila */
-    text-align: right;    /* contenido alineado a la derecha */
+    display: block;
+    text-align: right;
   }
 
   td::before {
