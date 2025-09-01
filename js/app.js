@@ -28,6 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("resize", ajustarColspanTotal);
     window.addEventListener("load", ajustarColspanTotal);
+
+    const btnMilHojas = document.getElementById("detalle-mil-hojas");
+    const btnTresLeches = document.getElementById("detalle-tres-leches");
+    const btnChocolate = document.getElementById("detalle-chocolate");
+    
+    btnMilHojas.addEventListener("click", () => {
+        window.location.href = "pastelMilHojas.html";
+    })
+
+    btnTresLeches.addEventListener("click", () => {
+        window.location.href = "pastelTresLeches.html";
+    })
+
+    btnChocolate.addEventListener("click", () => {
+        window.location.href = "pastelChocolate.html";
+    })
     
     
 });
