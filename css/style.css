@@ -198,7 +198,7 @@ RESPONSIVE TWEAKS
 
     
 
-@media (max-width: 600px) {
+@media (max-width: 670px) {
   table, thead, tbody, th, td, tr {
     display: block;
   }
@@ -218,6 +218,11 @@ RESPONSIVE TWEAKS
     display: flex;
     justify-content: space-between;
     padding: 6px 10px;
+  }
+
+  tfoot{
+    display: block;       /* que ocupe toda la fila */
+    text-align: right;    /* contenido alineado a la derecha */
   }
 
   td::before {

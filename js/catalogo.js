@@ -67,4 +67,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         
     });
+
+    const precioSpan = article.querySelector(".precio-pastel");
+    const tamanoSelect = document.getElementById("tamano-pastel");
+    if (precioSpan && tamanoSelect) {
+        tamanoSelect.addEventListener("change", () => {
+            const tamano = tamanoSelect.value;
+            const precio = preciosPorTamano[tamano] ?? 19990;
+            precioSpan.textContent = `$${precio.toLocaleString()}`;
+        });
+    }
+
 });

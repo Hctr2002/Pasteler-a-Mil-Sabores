@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function ajustarColspanTotal() {
         const ancho = window.innerWidth;
         const celdaTotal = document.getElementById("celda-total");
-        if (ancho < 768) {
+        if (ancho < 600) {
             celdaTotal.setAttribute("colspan", "3");
         } else {
             celdaTotal.setAttribute("colspan", "6");
