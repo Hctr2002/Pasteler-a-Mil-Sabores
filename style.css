@@ -67,7 +67,7 @@ header nav a {
 
 header nav a:hover{ background: var(--surface-2); border-color: #8A6F4D;} 
 
-main { width: min(1100 px, 100%); margin: 0 auto; padding: 1.25rem;}/* mantiene el menu fijo */ 
+main { width: min(1100px, 100%); margin: 0 auto; padding: 1.25rem;}/* mantiene el menu fijo */ 
 .screen { margin: clamp(1rem, 2.5vw, 2rem) 0; padding: clamp(1rem, 2vw, 2rem);
     background: linear-gradient(135deg, var(#f3da5f), var(#ebbf50));
     border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow);
@@ -78,7 +78,7 @@ main { width: min(1100 px, 100%); margin: 0 auto; padding: 1.25rem;}/* mantiene 
 .meta{ color: var(--muted); font-size: .9rem; }
 
 /* tarjetas en general esto afecta a todos los sub cuadrados por decirlo de alguna manera*/
-.cards, .grid { list-style: none; margin:0; padding: 0; display: grid; gap: 0 rem;}
+.cards, .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
 .cards li article, .grid li aeticle{
 padding: 1rem; border: 1px solid var(--border); border-radius: calc(var(--radius) - 4px);
 background: linear-gradient(135deg, var(--surface), var(--surface-2));
@@ -98,7 +98,7 @@ padding: .5rem 1rem; border-radius: calc(var(--radius) - 4px);
 
 /* forumalarios */
 
-form { display: grid; gap: 85rem;}
+form { display: grid; gap: 1rem;}
 label{ font-weight: 600; }
 input[type="text"], input[type="emmail"], input[type="password"],input[type="search"],input[type="number"],input[type="date"],input[type="time"], select, textarea
 
