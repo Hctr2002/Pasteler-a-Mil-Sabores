@@ -46,4 +46,31 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     
     
+
+});
+// FORMULARIO CONTACTO
+document.addEventListener("DOMContentLoaded", () => {
+
+    function mostrarToast(mensaje) {
+        const toast = document.getElementById("toast");
+        toast.textContent = mensaje;
+        toast.classList.add("show");
+
+        // Ocultar después de 3 segundos
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+
+    const btnContacto = document.getElementById("btn-contacto");
+    const formContacto = document.getElementById("form-contacto");
+    btnContacto.addEventListener("click", (e) => {
+        if (formContacto.checkValidity()) {
+            e.preventDefault();
+            mostrarToast("Gracias por contactarnos, te escribiremos lo antes posible!");
+            formContacto.reset();
+        }else {
+            formContacto.reportValidity();
+        }
+    });
 });
