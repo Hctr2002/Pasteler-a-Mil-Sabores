@@ -155,8 +155,32 @@ a[data-action], nav a[data-nav]{ outline: none; }
 a[data-action]:focus-visible, nav a[data-nav]:focus-visible{
     box-shadow: 0 0 0 3px #ffc0cb55;
     border-radius: 8px;
-}   
+}
 
+/* stilo del toast */
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 14px 20px;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, bottom 0.6s ease;
+    }
+
+    /* Estado visible */
+#toast.show {
+    opacity: 1;
+    bottom: 40px; /* Se mueve un poquito hacia arriba */
+    pointer-events: auto;
+}
 /* ==========================
 FOOTER
 ========================== */

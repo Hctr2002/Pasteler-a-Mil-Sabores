@@ -51,6 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const carrito = getCarrito();
         const idx = carrito.findIndex(p => p.id === producto.id);
 
+        function mostrarToast(mensaje) {
+            const toast = document.getElementById("toast");
+            toast.textContent = mensaje;
+            toast.classList.add("show");
+
+            // Ocultar después de 3 segundos
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
         if (idx >= 0) {
         carrito[idx].cantidad += 1;
         } else {
@@ -58,11 +69,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (`${tamano}` === "Seleccione una opción" || `${tipo}` === "Seleccione una opción" ) {
-            alert("Por favor, selecciona una opción válida.");
+            mostrarToast("Por favor, seleccione una opción de tamaño y tipo 🍰");
             return;
         }else {
             saveCarrito(carrito);
-            alert("Producto agregado al carrito ✅");
+            mostrarToast("Pastel agregado al carrito 🍰");
         }
 
         

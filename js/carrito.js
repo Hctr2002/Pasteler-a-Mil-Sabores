@@ -89,6 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Eventos
 
+    function mostrarToast(mensaje) {
+        const toast = document.getElementById("toast");
+        toast.textContent = mensaje;
+        toast.classList.add("show");
+
+        // Ocultar después de 3 segundos
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+
     // Eliminar desde la tabla
     if (tbody) {
         tbody.addEventListener("click", (e) => {
@@ -123,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             saveCarrito(carrito);
-            alert(`${producto.nombre} agregado al carrito ✅`);
+            mostrarToast("Pastel agregado al carrito 🍰");
         });
     });
 
