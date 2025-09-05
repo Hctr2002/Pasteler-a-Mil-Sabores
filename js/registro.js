@@ -1,6 +1,16 @@
 document.getElementById("registro-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    function mostrarToast(mensaje) {
+        const toast = document.getElementById("toast");
+        toast.textContent = mensaje;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+
     const nombre = document.getElementById("nombre").value;
     const apellido = document.getElementById("apellido").value;
     const direccion = document.getElementById("direccion").value;
@@ -13,7 +23,7 @@ document.getElementById("registro-form").addEventListener("submit", function(e) 
     // Verificar que el correo no esté ya registrado
     const existe = usuarios.some(u => u.email === email);
     if (existe) {
-        alert("Ya existe una cuenta con este correo.");
+        mostrarToast("Ya existe una cuenta con este correo.");
         return;
     }
 
@@ -24,6 +34,6 @@ document.getElementById("registro-form").addEventListener("submit", function(e) 
     usuarios.push(nuevoUsuario);
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-    alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
-    window.location.href = "login.html"; // Redirigir al login
+    mostrarToast("¡Registro exitoso! Ahora puedes iniciar sesión.");
+    setTimeout(() => window.location.href = "login.html", 1500); // Redirigir al login
 });
