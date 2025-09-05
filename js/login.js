@@ -1,6 +1,16 @@
 document.getElementById("login-form").addEventListener("submit", e => {
     e.preventDefault();
 
+    function mostrarToast(mensaje) {
+        const toast = document.getElementById("toast");
+        toast.textContent = mensaje;
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+    }
+
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
@@ -19,8 +29,8 @@ document.getElementById("login-form").addEventListener("submit", e => {
     // Verificar si es el admin
     if (email === adminUser.email && password === adminUser.password) {
         localStorage.setItem("usuario", JSON.stringify(adminUser));
-        alert("Bienvenido Administrador 🎂");
-        window.location.href = "../index.html";
+        mostrarToast("Bienvenido Administrador 🎂");
+        setTimeout(() => window.location.href = "../index.html", 1500);
         return;
     }
 
@@ -29,9 +39,9 @@ document.getElementById("login-form").addEventListener("submit", e => {
 
     if (usuarioValido) {
         localStorage.setItem("usuario", JSON.stringify(usuarioValido));
-        alert("Inicio de sesión exitoso 🎉");
-        window.location.href = "../index.html";
+        mostrarToast("Inicio de sesión exitoso 🎉");
+        setTimeout(() => window.location.href = "../index.html", 1500);
     } else {
-        alert("❌ Usuario o contraseña incorrectos");
+        mostrarToast("❌ Usuario o contraseña incorrectos");
     }
 });
