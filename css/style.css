@@ -102,6 +102,31 @@ CARDS & LISTADOS
     color: #8B4513;
 }
 
+/* Hace que todas las tarjetas tengan la misma altura */
+.cards {
+    align-items: stretch;
+}
+
+.cards li {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cards li article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cards li article img {
+    margin-bottom: 1rem;
+}
+
+.cards li article p {
+    flex-grow: 1;
+}
+
 /* ==========================
 FORMULARIOS
 ========================== */
