@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnMilHojas = document.getElementById("detalle-mil-hojas");
     const btnTresLeches = document.getElementById("detalle-tres-leches");
     const btnChocolate = document.getElementById("detalle-chocolate");
-    
+
+
     btnMilHojas.addEventListener("click", () => {
         window.location.href = "pastelMilHojas.html";
     })
@@ -44,8 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btnChocolate.addEventListener("click", () => {
         window.location.href = "pastelChocolate.html";
     })
-    
-    
 
 });
 // FORMULARIO CONTACTO
@@ -73,4 +72,59 @@ document.addEventListener("DOMContentLoaded", () => {
             formContacto.reportValidity();
         }
     });
+});
+
+// BUSCADOR DE PASTELES EN HOME
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('form[data-screen="home"]');
+    const input = document.getElementById("q");
+    const destacadosSection = document.querySelector('section[aria-labelledby="home-destacados-title"]');
+    const cardsList = document.querySelector('ul.cards[data-test-id="home-destacados"]');
+    const cards = cardsList ? Array.from(cardsList.querySelectorAll("li")) : [];
+
+    // Crear contenedor para resultados si no existe
+    let resultadosSection = document.getElementById("resultados-busqueda");
+    if (!resultadosSection) {
+        resultadosSection = document.createElement("section");
+        resultadosSection.id = "resultados-busqueda";
+        destacadosSection.parentNode.insertBefore(resultadosSection, destacadosSection.nextSibling);
+    }
+
+    resultadosSection.style.display = "none";
+
+    if (form && input && cardsList) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const query = input.value.trim().toLowerCase();
+
+            // Limpiar resultados anteriores
+            resultadosSection.innerHTML = "";
+
+            // Filtrar pasteles por nombre
+            const resultados = cards.filter(card => {
+                const nombre = card.querySelector("h4")?.textContent.toLowerCase() || "";
+                return nombre.includes(query);
+            });
+
+            // Ocultar destacados y mostrar resultados
+            destacadosSection.style.display = "none";
+            resultadosSection.style.display = "block";
+
+            if (resultados.length > 0) {
+                const ul = document.createElement("ul");
+                ul.className = "cards";
+                resultados.forEach(card => {
+                    ul.appendChild(card.cloneNode(true));
+                });
+                resultadosSection.appendChild(ul);
+            } else {
+                resultadosSection.innerHTML = "<p>No se encontraron pasteles con ese nombre.</p>";
+            }
+
+            if (!query) {
+                destacadosSection.style.display = "block";
+                resultadosSection.style.display = "none";
+            }
+        });
+    }
 });

@@ -157,7 +157,11 @@ a[data-action]:focus-visible, nav a[data-nav]:focus-visible{
     border-radius: 8px;
 }
 
-/* stilo del toast */
+#resultados-busqueda {
+    margin-top: 2rem; /* Puedes ajustar el valor según lo que prefieras */
+}
+
+/* estilo del toast */
 #toast {
     position: fixed;
     left: 50%;
@@ -199,16 +203,16 @@ footer nav a { color: var(--text-2); text-decoration: none; padding: .5rem .75re
 footer nav a:hover { color: #8B4513;}
 
 footer .footer-social {
-  display: flex;
-  justify-content: center; /* centra los iconos */
-  gap: 1rem; /* espacio entre ellos */
-  margin-top: 1rem;
+    display: flex;
+    justify-content: center; /* centra los iconos */
+    gap: 1rem; /* espacio entre ellos */
+    margin-top: 1rem;
 }
 
 footer .footer-social a img {
-  width: 32px;  /* ajusta tamaño de iconos */
-  height: 32px;
-  transition: transform 0.2s;
+    width: 32px;  /* ajusta tamaño de iconos */
+    height: 32px;
+    transition: transform 0.2s;
 }
 
 footer .footer-social a img:hover {
@@ -230,43 +234,43 @@ RESPONSIVE TWEAKS
     
 
 @media (max-width: 670px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
-  thead {
-    display: none;
-  }
+    thead {
+        display: none;
+    }
 
-  tr {
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 8px;
-  }
+    tr {
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 8px;
+    }
 
-  td {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 10px;
-  }
+    td {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 10px;
+    }
 
-  tfoot{
-    display: block;
-    text-align: right;
-  }
+    tfoot{
+        display: block;
+        text-align: right;
+    }
 
-  td::before {
-    content: attr(data-label);
-    font-weight: bold;
-  }
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
 }
 
 
 
 
 /* ==========================
-LIGHT MODE (opcional)
+LIGHT MODE
 ========================== */
 @media (prefers-color-scheme: light) {
     :root {
