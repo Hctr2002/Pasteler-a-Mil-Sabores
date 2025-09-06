@@ -19,5 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("usuario");
         window.location.href = "login.html";
     });
+
+    document.getElementById("edit-btn").addEventListener("click", () => {
+    window.location.href = "editarPerfil.html";
+});
 });
 
