@@ -78,15 +78,15 @@ main { width: min(1100px, 100%); margin: 0 auto; padding: 1.25rem;}/* mantiene e
 .meta{ color: var(--muted); font-size: .9rem; }
 
 /* tarjetas en general esto afecta a todos los sub cuadrados por decirlo de alguna manera*/
-.cards, .grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.cards, .grid { list-style: none; margin: 0; padding: 3; display: grid; gap: 1rem; }
 .cards li article, .grid li aeticle{
-padding: 1rem; border: 1px solid var(--border); border-radius: calc(var(--radius) - 4px);
+padding: 1rem; border: 0.5px solid var(--border); border-radius: calc(var(--radius) - 4px);
 background: linear-gradient(135deg, var(--surface), var(--surface-2));
 }
 .cards li article, .grid li article a{
 display: inline-block;margin-right: 5.rem; margin-top: 3rem; /*Esto modifica los pasteles mas populares*/
 text-decoration: none; color: var(--text); background: linear-gradient(135deg, var(--surface), var(--surface-2));
-padding: .5rem 1rem; border-radius: calc(var(--radius) - 4px);
+padding: 0.5rem 1rem; border-radius: calc(var(--radius) - 4px);
 }
 .cards li article a:hover, .grid li article a:focus{ filter: brightness(1.05);}
 
