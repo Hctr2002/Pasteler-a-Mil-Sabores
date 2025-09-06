@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         categoria,
         tipo,
         tamano: `${tamano} Personas`,
-        extras: extrasArr.length ? extrasArr.join(", ") : "Ninguno",
+        extras: extrasArr.length ? extrasArr.join(", ") : "Sin-extras",
         precio,
         cantidad: 1
         };

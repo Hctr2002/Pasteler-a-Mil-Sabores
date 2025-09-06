@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Valores por defecto
             const tamano = item.tamano || "6/8 Personas";
-            const extras = item.extras || "Ninguno";
+            const extras = item.extras || "Sin-extras";
 
             row.innerHTML = `
                 <td  data-label="N°">${item.cantidad || 1}</td>
