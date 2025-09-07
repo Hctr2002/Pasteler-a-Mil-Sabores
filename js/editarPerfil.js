@@ -11,24 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Crear formulario con los datos actuales
     main.innerHTML = `
-        <h2>Editar perfil</h2>
-        <form id="form-editar-perfil">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" value="${usuario.nombre || ""}" required>
-            
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" value="${usuario.apellido || ""}" required>
-            
-            <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" value="${usuario.direccion || ""}" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="${usuario.email || ""}" required>
-            
-            <button type="submit">Guardar cambios</button>
-            <button type="button" id="cancelar-btn">Cancelar</button>
-        </form>
-        <div id="toast"></div>
+        <section class="perfil-form">
+            <h2>Editar perfil</h2>
+            <form id="form-editar-perfil">
+                <p><label for="nombre"><strong>Nombre:</strong></label>
+                <input type="text" id="nombre" name="nombre" value="${usuario.nombre || ""}" required></p>
+                
+                <p><label for="apellido"><strong>Apellido:</strong></label>
+                <input type="text" id="apellido" name="apellido" value="${usuario.apellido || ""}" required></p>
+                
+                <p><label for="direccion"><strong>Dirección:</strong></label>
+                <input type="text" id="direccion" name="direccion" value="${usuario.direccion || ""}" required></p>
+                
+                <p><label for="email"><strong>Email:</strong></label>
+                <input type="email" id="email" name="email" value="${usuario.email || ""}" required></p>
+                
+                <div class="perfil-form-btns">
+                    <button type="submit">Guardar cambios</button>
+                    <button type="button" id="cancelar-btn">Cancelar</button>
+                </div>
+            </form>
+            <div id="toast"></div>
+        </section>
     `;
 
     // Guardar cambios
