@@ -23,9 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p><label for="direccion"><strong>Dirección:</strong></label>
                 <input type="text" id="direccion" name="direccion" value="${usuario.direccion || ""}" required></p>
                 
-                <p><label for="email"><strong>Email:</strong></label>
-                <input type="email" id="email" name="email" value="${usuario.email || ""}" required></p>
-                
                 <div class="perfil-form-btns">
                     <button type="submit">Guardar cambios</button>
                     <button type="button" id="cancelar-btn">Cancelar</button>
@@ -42,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ...usuario,
             nombre: document.getElementById("nombre").value,
             apellido: document.getElementById("apellido").value,
-            direccion: document.getElementById("direccion").value,
-            email: document.getElementById("email").value
+            direccion: document.getElementById("direccion").value
         };
 
         function mostrarToast(mensaje) {
