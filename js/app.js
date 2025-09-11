@@ -24,11 +24,16 @@
     /*Router por hash*/
     const sections = () => $$('main sections');
     const showSection =  (hash) => {
+<<<<<<< HEAD
         const target = hash ?.replace('#', '') || 'home';
+=======
+        const target = hash ?.replace('#', '') || 'home';}
+>>>>>>> fbb5cda317780cd93f71266b5c7b1402bcbe1e96
         sections().forEach (sec => { 
             const id = sec.getAttribute('id');
             sec.style.display = (id === target) ? '' : 'none';
         });
+<<<<<<< HEAD
     }; 
     window.addEventListener('hashchange', () => showSection(location.hash));
     document.addEventListener('DOMcontentLoaded' , () => showSection(location.hash));
@@ -43,4 +48,8 @@
     };
     
 
+=======
+    };
+    
+>>>>>>> fbb5cda317780cd93f71266b5c7b1402bcbe1e96
 })
