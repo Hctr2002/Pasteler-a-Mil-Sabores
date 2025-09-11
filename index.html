@@ -1,0 +1,298 @@
+<!--test para ver si funciona-->
+<html lang= "es"> 
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Dulces delicias</title>
+        <meta name="descriptions" content="Prototipo HTML y CSS "/>
+        <!-- AH esa es la estrucuta para las notas xd-->
+         <link rel="stylesheet"href="style.css">
+    </head>
+
+     <!-- Pantalla principal--> 
+    <body>  
+         <header role="banner">
+            <div class="brand">
+                <h1 aria-label="Dulces delicias">Dulces Delicias 🍰</h1>
+                <p  class="tagline">El toque de dulzura que necesitas</p>
+            </div>
+
+            <nav aria-label="menu principal">
+            <ul>
+                <li><a href="#Tortas mas populares"datanav>Inicio</a></li>
+                <li><a href="#Personalizacion"datanav>Personalizacion</a></li>
+                <li><a href="#Carrito"datanav>Carrito</a></li>
+                <li><a href="#Perfil"datanav>Perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- Pantalla de personalizacion-->
+        <main id="contenido" tabindex="-1">
+        <section id="Personalizacion" class="screen" aria-labelledby="home-tittle">
+            <h2 id="home-tittle">Bienvenido a Dulces delicias</h2> 
+            <h3 id="home-personalizacion-tittle">Personaliza tu pastel</h3>
+            <p>Personaliza tus pasteles y explora otro nivel de sabores</p>
+
+            <div class = "cards">
+
+             <!--Para elegir tamaños-->
+            <form aria-label = "Personalizacion de pasteles" data-screen="Personalizacion">
+                <p>¿Qué porción necesita?</p>
+                <label>
+                    <input type="checkbox" name="porcion" value="pequeno">
+                        Pequeño (4-6 Porciones)
+                </label> &nbsp;&nbsp;
+                 <label>
+                    <input type="checkbox" name="porcion" value="mediano">
+                         Mediano (8-10 Porciones)
+                </label> &nbsp;&nbsp;
+                <label>
+                    <input type="checkbox" name="porcion" value="grande">
+                         Grande (10-12 Porciones)
+                </label> &nbsp;&nbsp;
+            </form> 
+
+
+            
+
+            <!--Para elegir sabores-->
+                <div class="busqueda-sabor">
+                    <label for="q">¿Qué sabor principal quieres?</label> <br> <br>
+                    
+                    <input
+                     id="q"
+                     name="q"
+                     type="search"
+                     class="input-sabor"
+                    placeholder="frutilla, naranja, piña, durazno"
+                    > 
+                
+                    <div class="botones">
+                    <button type="reset" class="boton-secundario">Borrar</button>
+                    <button type="submit" class="boton-primario">Seleccionar</button>
+                 </div>
+                </div>
+                
+                
+                <br>
+
+            <!--Para elegir nivel de azucar-->
+        
+                 <div class="nivel-azucar">
+                    <label for="Nivel">¿Cuál es el nivel de azúcar que quieres?</label> <br>
+                <select name="Nivel" id="Nivel" class="select-azucar">
+                    <option value="suave">Suave</option>
+                    <option value="Medio">Media</option>
+                    <option value="Alto">Alta</option>
+                </select>
+            </div>
+            </div>
+            <br>
+
+         <!--Perfil-->
+            <section id ="perfil" class="section-gap">
+                 <div class="row g-4">
+                  <div class="col-12 col-ig6">
+                     <div class = "p-4 rounded-4 bg-surface h-100">
+                            <h2 class="h4">Mi perfil</h2>
+                            <form class="vstack gap-3" aria-label="Perfil">
+                                <div><label class="form-label" for="nombre">Nombre: <div></div></label><input id="nombre"
+                                    class="form-control" type="text"></div>
+                                <div><label class="form-label" for="email">Email: <div></div></label><input id="email"
+                                    class="form-control" type = "text"></div>
+                                <button type="submit" class="boton-primario">Ingresar</button>
+                                <button type="reset" class="boton-secundario">Cancelar </button>
+                            </div>
+                            </div>
+                           </form>
+                       </div>
+                 </div>
+             </div>
+            </section>
+    <!-- Pantalla de tortas destacados-->
+        <section aria-labelledby="home-destacados-tittle">
+            <h3 id="home-destacados-tittle">Pasteles mas populares</h3>
+             <p>Estos son los pasteles mas populares</p>
+
+            <ul class="cards" data-testid="home-populares">
+                <li>
+                    <article>
+                        <h4>Torta mil hojas</h4>
+                        <p>Capas crujientes de hojaldre con manjar cremoso, un clásico dulce y delicioso.</p>
+                        <a href="#detalle-pastel" data-action="ver-detalle" data-id="DP001">ver detalle</a>
+                    </article>
+                </li>
+                 <li>
+                    <article>
+                        <h4>Torta Tres leches</h4>
+                        <p>Bizcocho empapado en una mezcla de leches (evaporada, condensada y crema), cubierta con merengue o chantilly</p>
+                        <a href="#detalle-pastel" data-action="ver-detalle" data-id="DP002">ver detalle</a>
+                    </article>
+                </li>
+                 <li>
+                    <article>
+                        <h4>Torta de Vainilla</h4>
+                        <p>Suave y esponjosa, perfecta para combinar con frutas, crema chantilly o manjar.</p>
+                        <a href="#detalle-pastel" data-action="ver-detalle" data-id="DP003">ver detalle</a>
+                    </article>
+                </li>
+            </ul>
+        </section>
+
+    <!-- Pantalla pasteles hechos-->
+    <section id="Pasteles pre fabricados" class="screen" aria-labelledby="catalogo-tittle">
+            <h2 id="catalogo-tittle">Catalogo de tortas</h2>
+            <p>No sabes que elegir pues elige una pre-fabricada y ya esta!!</p>
+
+            <aside aria-label="Filtros">
+                <form data-screen="Catalogo-filtros">
+                    <fieldset>
+                        <legend>Categorias</legend>
+                        <label><input type="checkbox" name="cat" id="mil-hojas" /> Mil hojas</label>
+                        <label><input type="checkbox" name="cat" id="mil-hojas" /> Torta Tres leches</label>
+                        <label><input type="checkbox" name="cat" id="mil-hojas" /> Torta de Vainilla</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Porciones</legend>
+                        <label for="porciones">Porciones</label>
+                        <input name="porciones" id="porciones" type="number" min="2" max="10" step="2" placeholder="2">
+                    </fieldset>
+
+                    <button type="submit">Seleccionar </button>
+                </form>
+            </aside>
+    </section>
+
+    <!--Reseña clientes-->
+    
+    <section aria-labelledby="Resenas-tittle">
+        <h2 id="Reseñas">Reseñas</h2>
+        <p>Revisa las opiñiones de nuestros clientes</p>
+        <ul class="grid" data-test-id="Reseñas">
+            <li>
+                <article>
+                    <header>
+                        <h4>Juan Alberto </h4>
+                        <p class="meta">Pastel seleccionado: Pastel 3 leches •  Calificacion: ★★★</p>
+                    </header>
+                    <P>Reseña: La mejor torta que e tenido la dicha de probar</P>
+            </li>  
+            <li>
+                    <header>
+                        <h4>Ana Maria </h4>
+                        <p class="meta">Pastel seleccionado: Pastel mil hojas •  Calificacion: ★★</p>
+                    </header>
+                    <P>Reseña: La torta le falta un poco mas de manjar</P>
+                </article>
+            </li>
+    </section>
+
+    <!--Detalle del pastel-->
+
+            <section id="detalle-torta" class="screen" aria-labelledby="detalle-tittle">
+            <h2 id="detalle-tittle">Detalle del Pastel</h2>
+            <article data-id="DP002">
+                <header>
+                    <h3>Torta tres leches</h3>
+                    <p class="meta">Nivel de azucar: media • Nivel de popularidad:★★★</p> 
+                </header>
+                <p>Bizcocho empapado en una mezcla de leches (evaporada, condensada y crema), cubierta con merengue o chantilly</p>
+
+                <form aria-label = "Opciones extra del pastel" data-screen="detalle-screen="detalle-extra></form>
+                <fieldset>
+                    <legend>Elige opciones extra</legend>
+                        <select id="extras-tresleches" name="extras[]" multiple aria-describedby="extra-help">
+                        <option value="Sin lactosa">Sin lactosa</option>
+                        <option value="Sin gluten">Sin gluten</option>
+                        <option value="Vegana">Vegana</option>
+                    </select>
+                    <small id="extra-help">Mantén presionado Ctrl o Cmd para seleccionar varios.</small>
+                </fieldset>
+
+                <button type="submit">Agregar al Carrito</button>
+
+            </article>
+
+             <article data-id="DP001">
+                <header>
+                    <h3>Torta mil hojas</h3>
+                    <p class="meta">Nivel de azucar: media • Nivel de popularidad:★★</p> 
+                </header>
+                <p>Capas crujientes de hojaldre con manjar cremoso, un clásico dulce y delicioso</p>
+
+                <form aria-label = "Opciones extra del pastel" data-screen="detalle-screen="detalle-extra></form>
+                       
+                <fieldset>
+                    <legend>Elige opciones extra</legend>
+                        <select id="extras-milhojas" name="extras[]" multiple aria-describedby="extra-help">
+                        <option value="Sin lactosa">Sin lactosa</option>
+                        <option value="Sin gluten">Sin gluten</option>
+                        <option value="Vegana">Vegana</option>
+                    </select>
+                    <small id="extra-help">Mantén presionado Ctrl o Cmd para seleccionar varios.</small>
+                </fieldset>
+                <button type="submit">Agregar al Carrito</button>
+
+            </article>
+
+    <!-- Carro de compra -->
+        </section id="carrito" class="screen" aria-labelledby="carrito-tittle">
+            <h2 id="carrito-tittle">Resumen de tus compras</h2>
+
+            <table aria-describedby="carrito resumen">
+                <caption id="carrito-resumen">Resumen de tus tortas seleccionadas</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Torta selccionada</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Nivel de azucar</th>
+                        <th scope="col">Tamaño</th>
+                        <th scope="col">Extras</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Torta mil hojas</td>
+                        <td>Torta pre-fabricada</td>
+                        <td>Alto</td>
+                        <td>10 porciones</td>
+                        <td>sin lactosa</td>
+                        <td>$25.000</td>
+                        <td>
+                            <a href="#" data-action="editar">Editar</a>
+                            <a href="#" data-action="eliminar">Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <footer>
+                    <tr>
+                        <td colspan="6">Total</td>
+                        <td>$25.000</td>
+                        <td><a href="#chekout" data-action="pagar">Ir a pagar</a></td>
+                    </tr>
+                </footer>
+            
+            </table>
+
+    </main>
+    
+   <!-- Footer --> 
+    <footer class="border-top border-secondary pt4 mt-5">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link px-2 text-white" href= "#">Terminos</a></li>
+                                <li class="nav-item"><a class="nav-link px-2 text-white" href= "#">Terminos</a></li>
+                                <li class="nav-item"><a class="nav-link px-2 text-white" href= "#">Politicas de privacidad</a></li>
+                                <li class="nav-item"><a class="nav-link px-2 text-white" href= "#estado-pedido">Estado-pedido</a></li>
+            </ul> 
+            <small class="text-muted"> Derechos recerbados Dulces Delicias 2024</small>           
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    </body>
+</html>
