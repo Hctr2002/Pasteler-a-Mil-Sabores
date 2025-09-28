@@ -3,6 +3,8 @@
 import './App.css'
 import Header from './components/Header';
 import Footer from './components/Footer.jsx'; 
+import Home from './components/Home';
+import './App.css'; 
 
 function App() {
 
@@ -10,7 +12,7 @@ function App() {
     <>
       <Header />
        <main>
-        
+          <Home />
       </main>
 
       <Footer />
