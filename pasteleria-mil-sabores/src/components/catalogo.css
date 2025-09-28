@@ -36,3 +36,68 @@
   gap: 0.5rem;
   margin-top: 1rem;
 }
+
+.filter-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.filter-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre cada grupo de filtros */
+}
+
+.filter-group h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--text-2);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre cada checkbox/radio */
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre el input y su texto */
+}
+
+/* Estilos para los inputs y el select */
+.filter-section input[type="checkbox"],
+.filter-section input[type="radio"] {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.filter-section select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.filter-section button {
+  width: 100%;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+
+
+.filter-group { 
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.filter-group legend { 
+  padding: 0 0.5rem; 
+  color: var(--text-2);
+  font-weight: bold; 
+}
