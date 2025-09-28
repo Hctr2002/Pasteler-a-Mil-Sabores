@@ -2,12 +2,18 @@
 
 import './App.css'
 import Header from './components/Header';
+import Footer from './components/Footer.jsx'; 
 
 function App() {
 
   return (
     <>
-      <Header /> {/* 2. AGREGA TU COMPONENTE HEADER AQUÍ ARRIBA */}
+      <Header />
+       <main>
+        
+      </main>
+
+      <Footer />
     
     </>
   );

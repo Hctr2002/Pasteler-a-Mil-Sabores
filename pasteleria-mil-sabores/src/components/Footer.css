@@ -1,0 +1,59 @@
+/* src/components/Footer.css */
+
+.main-footer {
+  padding: 1.25rem;
+  color: var(--text-2); /* Usamos las variables de color que ya tienes */
+  text-align: center;
+  background: linear-gradient(0deg, #eed9b1ee, #fff5e1ee);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem; /* Un poco de espacio arriba */
+  font-size: 0.9rem;
+}
+
+.footer-content, .footer-links, .social-links, .cookie-notice {
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem; /* Espacio entre los enlaces */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Espacio entre los íconos */
+}
+
+.social-links a {
+  color: var(--text-2);
+  font-size: 24px; /* Tamaño de los íconos */
+  transition: transform 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2); /* Efecto de zoom */
+}
+
+
+.cookie-notice {
+  margin-bottom: 1rem;
+  max-width: 600px; 
+}
+
+.btn-pill {
+  border-radius: 999px; 
+}

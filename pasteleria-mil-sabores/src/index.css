@@ -1,0 +1,20 @@
+/* En src/index.css */
+
+/* En src/index.css */
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
