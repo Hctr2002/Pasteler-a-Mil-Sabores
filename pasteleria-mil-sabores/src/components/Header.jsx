@@ -1,5 +1,6 @@
-// src/components/Header.jsx
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css'; // Crearemos este archivo para los estilos
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
         <ul>
           <li><a href="/">Inicio</a></li>
           <li><a href="/blogs">Blogs y noticias</a></li>
-          <li><a href="/catalogo">Catálogo</a></li>
+          <li><Link to="/catalogo">Catálogo</Link></li>
           <li><a href="/carrito">Carrito</a></li>
           <li><a href="/login" id="login-link">Ingresar</a></li>
         </ul>

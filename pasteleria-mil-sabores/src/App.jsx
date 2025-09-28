@@ -1,24 +1,19 @@
-// src/App.jsx
 
-import './App.css'
+import { Outlet } from 'react-router-dom'; 
 import Header from './components/Header';
-import Footer from './components/Footer.jsx'; 
-import Home from './components/Home';
-import './App.css'; 
+import Footer from './components/Footer';
+import './App.css';
 
 function App() {
-
   return (
     <>
       <Header />
-       <main>
-          <Home />
+      <main>
+        <Outlet /> {/* Aquí es donde se renderizará Home o Catalogo */}
       </main>
-
       <Footer />
-    
     </>
   );
 }
 
-export default App
+export default App;

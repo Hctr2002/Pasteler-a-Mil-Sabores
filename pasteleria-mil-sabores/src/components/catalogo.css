@@ -1,0 +1,38 @@
+
+.catalogo-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card h3, .card h4 {
+  margin-top: 0;
+  color: var(--text-2);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+   height: auto;
+  display: block;
+}
+
+.card .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card .card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
