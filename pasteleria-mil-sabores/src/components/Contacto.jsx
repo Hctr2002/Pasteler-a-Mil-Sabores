@@ -1,7 +1,7 @@
 // src/components/Contacto.jsx
 
 import React from 'react';
-import '../App.css'; 
+import '../styles/theme.css';
 
 function Contacto() {
   return (

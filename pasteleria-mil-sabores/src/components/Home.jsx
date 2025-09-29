@@ -1,7 +1,7 @@
 // src/components/Home.jsx
 
 import React from 'react';
-import './Home.css'; // Importamos su archivo de estilos
+import '../styles/theme.css'; // Importamos su archivo de estilos
 
 function Home() {
   return (

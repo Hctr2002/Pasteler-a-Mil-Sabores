@@ -1,5 +1,5 @@
 import React from 'react';
-import './Catalogo.css';
+import '../styles/theme.css';
 import milHojasImage from '../assets/images/pastel-mil-hojas.png';
 import tresLechesImage from '../assets/images/pastel-tres-leches.png';
 import chocolateImage from '../assets/images/pastel-chocolate.png';

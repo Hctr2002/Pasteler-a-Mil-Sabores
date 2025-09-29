@@ -2,13 +2,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
+import Footer from './components/layout/Footer.jsx';
 import Home from './components/Home.jsx';
 import Catalogo from './components/Catalogo.jsx';
 import PoliticaDePrivacidad from './components/PoliticaDePrivacidad.jsx';
 import TerminosDeServicio from './components/TerminosDeServicio.jsx';
 import Contacto from './components/Contacto.jsx';
-import './App.css';
+import './styles/theme.css';
 
 function App() {
   return (

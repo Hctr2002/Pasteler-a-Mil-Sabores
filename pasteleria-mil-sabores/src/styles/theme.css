@@ -1,0 +1,390 @@
+
+.home-content {
+ 
+  max-width: 900px; 
+  margin: 0 auto; 
+  padding: 2rem; 
+}
+
+
+.screen + .screen {
+  margin-top: 2rem;
+}
+
+/* =============================================
+   VARIABLES Y COLORES (La base de todo)
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
+:root {
+  --bg: #FFF5E1;
+  --surface: #fffaf3;
+  --surface-2: #fbeedc;
+  --text: #4b2e13;
+  --text-2: #8B4513;
+  --accent: #FFC0CB;
+  --muted: #bfa07a;
+  --border: #e6d3b3;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,.10);
+}
+
+/* =============================================
+   RESET BÁSICO Y ESTILOS GLOBALES DEL BODY
+   ============================================= */
+* { 
+  box-sizing: border-box;
+}
+
+html { 
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif; /* Usaremos Lato como fuente base */
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Tipografía especial para los títulos */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Pacifico", cursive;
+}
+
+/* =============================================
+   ESTILOS DEL HEADER (Lo que más necesitas ahora)
+   ============================================= */
+header.banner { /* Cambié el selector para que coincida con tu className de React */
+  position: sticky; 
+  top: 0; 
+  z-index: 50;
+  display: grid; 
+  gap: .5rem; 
+  align-items: center;
+  grid-template-columns: 1fr; 
+  padding: 1rem;
+  background: linear-gradient(0deg, #eed9b1ee, #fff5e1ee);
+  border-bottom: 1px solid var(--border);
+}
+
+header.banner .brand a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header.banner .brand h1 { 
+  margin: 0; 
+  font-size: 1.5rem; 
+}
+
+header.banner .brand .tagline { 
+  margin: .125rem 0 0; 
+  color: var(--muted); 
+  font-size: .9rem; 
+}
+
+/* Estilos de los botones de navegación del Header */
+header.banner nav ul {
+  margin: .5rem 0 0; 
+  padding: 0; 
+  list-style: none;
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: .5rem;
+}
+
+header.banner nav a {
+  text-decoration: none; 
+  color: var(--text-2);
+  padding: .5rem .75rem; 
+  border: 1px solid var(--border);
+  border-radius: var(--radius); 
+  transition: background .2s, color .2s, border-color .2s;
+  background: none;
+}
+
+header.banner nav a:hover {
+  background: var(--accent);
+  color: #8B4513;
+  border-color: #8B4513;
+}
+
+/* Ajuste para pantallas más grandes */
+@media(min-width: 960px){
+  header.banner { 
+    grid-template-columns: auto 1fr; 
+  }
+  header.banner nav ul { 
+    justify-content: flex-end; 
+  }
+}
+
+/* =============================================
+   ESTILOS DE BOTONES GENÉRICOS
+   ============================================= */
+button, .btn {
+  cursor: pointer; 
+  border: 0; 
+  padding: .75rem 1rem; 
+  border-radius: 12px;
+  background: #8B4513; 
+  color: #fff;
+  font-weight: 700; 
+  letter-spacing: .2px; 
+  text-shadow: 0 1px rgba(255,255,255,.2);
+  transition: background .2s, color .2s;
+}
+
+button:hover, .btn:hover {
+  background: var(--accent);
+  color: #8B4513;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+
+.screen {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(1rem, 2vw, 2rem);
+}
+
+.screen h2 {
+  margin-top: 0;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+
+.catalogo-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card h3, .card h4 {
+  margin-top: 0;
+  color: var(--text-2);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+   height: auto;
+  display: block;
+}
+
+.card .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card .card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.filter-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.filter-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre cada grupo de filtros */
+}
+
+.filter-group h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--text-2);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espacio entre cada checkbox/radio */
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Espacio entre el input y su texto */
+}
+
+/* Estilos para los inputs y el select */
+.filter-section input[type="checkbox"],
+.filter-section input[type="radio"] {
+  width: 1.15em;
+  height: 1.15em;
+}
+
+.filter-section select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.filter-section button {
+  width: 100%;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+
+
+.filter-group { 
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.filter-group legend { 
+  padding: 0 0.5rem; 
+  color: var(--text-2);
+  font-weight: bold; 
+}
+
+/* ==================================
+   ESTILOS FORMULARIO DE CONTACTO
+   ================================== */
+
+.contact-form {
+  margin-top: 2rem;
+}
+
+.contact-container{
+   max-width: 600px;  
+  margin: 2rem auto;
+}
+
+.contact-form label {
+  display: block; 
+  margin-bottom: 0.5rem; 
+}
+
+/* --- ESTILOS PARA LOS CAMPOS DE TEXTO --- */
+.contact-form input,
+.contact-form textarea {
+  /* Apariencia y color */
+  background-color: #fff5e1;
+  border: 1px solid #e6d3b3;
+
+  /* --- NUEVO: Dimensiones y espaciado --- */
+  width: 100%;                  /* Ocupa el 100% del ancho */
+  padding: 0.7rem 0.8rem;       /* Espaciado interno para que sea más alto */
+  border-radius: 12px;          /* Esquinas redondeadas */
+  box-sizing: border-box;       /* Importante para que el ancho funcione bien con el padding */
+  color: #4b2e13;               /* Color del texto que se escribe */
+  font-family: inherit;         /* Usa la misma fuente que el resto de la página */
+  font-size: 1rem;
+}
+
+/* --- NUEVO: ESTILOS PARA EL BOTÓN --- */
+.contact-form button {
+  width: 100%;                  /* Ocupa el 100% del ancho */
+  padding: 0.75rem 1rem;        /* Espaciado interno */
+  border-radius: 12px;          /* Esquinas redondeadas */
+  background: #8B4513;          /* Color de fondo del botón */
+  color: #fff;                  /* Color del texto del botón */
+  font-weight: 700;             /* Texto en negrita */
+  font-size: 1rem;
+  border: none;                 /* Sin borde */
+  cursor: pointer;              /* Muestra la manito al pasar el mouse */
+  transition: background .2s;   /* Pequeña animación al pasar el mouse */
+}
+
+.contact-form button:hover {
+  background: #a0522d;         /* Un color un poco más claro al pasar el mouse */
+}
+
+/* src/components/Footer.css */
+
+.main-footer {
+  padding: 1.25rem;
+  color: var(--text-2); /* Usamos las variables de color que ya tienes */
+  text-align: center;
+  background: linear-gradient(0deg, #eed9b1ee, #fff5e1ee);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem; /* Un poco de espacio arriba */
+  font-size: 0.9rem;
+}
+
+.footer-content, .footer-links, .social-links, .cookie-notice {
+  margin-bottom: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem; /* Espacio entre los enlaces */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Espacio entre los íconos */
+}
+
+.social-links a {
+  color: var(--text-2);
+  font-size: 24px; /* Tamaño de los íconos */
+  transition: transform 0.2s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2); /* Efecto de zoom */
+}
+
+
+.cookie-notice {
+  margin-bottom: 1rem;
+  max-width: 600px; 
+}
+
+.btn-pill {
+  border-radius: 999px; 
+}

@@ -1,8 +1,7 @@
 // src/components/Footer.jsx
 
-import React from 'react';
 import { Link } from 'react-router-dom'; // <-- 1. IMPORTAMOS Link
-import './Footer.css';
+import '../../styles/theme.css';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 function Footer() {
