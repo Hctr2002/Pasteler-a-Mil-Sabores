@@ -1,0 +1,52 @@
+/* ==================================
+   ESTILOS FORMULARIO DE CONTACTO
+   ================================== */
+
+.contact-form {
+  margin-top: 2rem;
+}
+
+.contact-container{
+   max-width: 600px;  
+  margin: 2rem auto;
+}
+
+.contact-form label {
+  display: block; 
+  margin-bottom: 0.5rem; 
+}
+
+/* --- ESTILOS PARA LOS CAMPOS DE TEXTO --- */
+.contact-form input,
+.contact-form textarea {
+  /* Apariencia y color */
+  background-color: #fff5e1;
+  border: 1px solid #e6d3b3;
+
+  /* --- NUEVO: Dimensiones y espaciado --- */
+  width: 100%;                  /* Ocupa el 100% del ancho */
+  padding: 0.7rem 0.8rem;       /* Espaciado interno para que sea más alto */
+  border-radius: 12px;          /* Esquinas redondeadas */
+  box-sizing: border-box;       /* Importante para que el ancho funcione bien con el padding */
+  color: #4b2e13;               /* Color del texto que se escribe */
+  font-family: inherit;         /* Usa la misma fuente que el resto de la página */
+  font-size: 1rem;
+}
+
+/* --- NUEVO: ESTILOS PARA EL BOTÓN --- */
+.contact-form button {
+  width: 100%;                  /* Ocupa el 100% del ancho */
+  padding: 0.75rem 1rem;        /* Espaciado interno */
+  border-radius: 12px;          /* Esquinas redondeadas */
+  background: #8B4513;          /* Color de fondo del botón */
+  color: #fff;                  /* Color del texto del botón */
+  font-weight: 700;             /* Texto en negrita */
+  font-size: 1rem;
+  border: none;                 /* Sin borde */
+  cursor: pointer;              /* Muestra la manito al pasar el mouse */
+  transition: background .2s;   /* Pequeña animación al pasar el mouse */
+}
+
+.contact-form button:hover {
+  background: #a0522d;         /* Un color un poco más claro al pasar el mouse */
+}

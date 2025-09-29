@@ -1,13 +1,12 @@
-/* src/components/Home.css */
 
 .home-content {
-  /* Esto asegura que el contenido no ocupe todo el ancho en pantallas grandes */
+ 
   max-width: 900px; 
-  margin: 0 auto; /* Centra el contenido horizontalmente */
-  padding: 2rem; /* Añade un poco de espacio en los bordes */
+  margin: 0 auto; 
+  padding: 2rem; 
 }
 
-/* Espacio entre las tarjetas de contenido */
+
 .screen + .screen {
   margin-top: 2rem;
 }
