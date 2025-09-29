@@ -1,30 +1,28 @@
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "../../styles/theme.css";
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../../styles/theme.css'; // Crearemos este archivo para los estilos
-
-const AppNavbar = () => {
-  return (
-    //  En JSX, 'class' se escribe como 'className'
-    <header className="banner">
-      <div className="brand">
-        <a href="/">
-          <h1>🎂 Mil Sabores</h1>
-        </a>
-        <p className="tagline">Tu Pastelería favorita donde tenemos justo lo que deseas</p>
-      </div>
-
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/blogs">Blogs y noticias</a></li>
-          <li><Link to="/catalogo">Catálogo</Link></li>
-          <li><a href="/carrito">Carrito</a></li>
-          <li><a href="/login" id="login-link">Ingresar</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
-
-export default AppNavbar;
+export default function AppNavbar() {
+    return (
+        <Navbar expand="lg" className="custom-navbar" aria-label="Navegación principal" sticky="top">
+            <Container>
+                <div className="brand">
+                    <Navbar.Brand as={Link} to="/" className="p-0 m-0">
+                        <h1 aria-label="MilSabores">🎂 Mil Sabores</h1>
+                    </Navbar.Brand>
+                    <p className="tagline">Tu Pastelería favorita donde tenemos justo lo que deseas</p>
+                </div>
+                <Navbar.Toggle aria-controls="main-navbar-nav" />
+                <Navbar.Collapse id="main-navbar-nav">
+                    <Nav className="ms-auto">
+                        <Nav.Link as={Link} to="/" className="custom-link">Inicio</Nav.Link>
+                        <Nav.Link as={Link} to="/blogs" className="custom-link">Blogs y noticias</Nav.Link>
+                        <Nav.Link as={Link} to="/catalogo" className="custom-link">Catálogo</Nav.Link>
+                        <Nav.Link as={Link} to="/carrito" className="custom-link">Carrito</Nav.Link>
+                        <Nav.Link as={Link} to="/login" className="custom-link">Ingresar</Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
+    );
+}

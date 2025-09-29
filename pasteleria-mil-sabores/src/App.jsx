@@ -9,7 +9,7 @@ export default function App(){
   return (
     <>
       <AppNavbar />
-      <main>
+      <main class="contenido">
         <AppRouter />
       </main>
       <Footer />
