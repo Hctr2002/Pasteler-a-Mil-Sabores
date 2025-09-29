@@ -1,34 +1,18 @@
+import AppNavbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import React from 'react';
-import AppNavbar from './components/layout/Navbar.jsx';
-import Footer from './components/layout/Footer.jsx';
-import Home from './components/Home.jsx';
-import Catalogo from './components/Catalogo.jsx';
-import PoliticaDePrivacidad from './components/PoliticaDePrivacidad.jsx';
-import TerminosDeServicio from './components/TerminosDeServicio.jsx';
-import Contacto from './components/Contacto.jsx';
+import AppRouter from './routes/AppRouter';
+
 import './styles/theme.css';
 
-
-function App() {
+export default function App(){
   return (
     <>
-      <React.StrictMode>
-        <BrowserRouter>
-          <AppNavbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/catalogo" element={<Catalogo />} />
-            <Route path="/politica-de-privacidad" element={<PoliticaDePrivacidad />} />
-            <Route path="/terminos-de-servicio" element={<TerminosDeServicio />} />
-            <Route path="/contacto" element={<Contacto />} /> 
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </React.StrictMode>
+      <AppNavbar />
+      <main>
+        <AppRouter />
+      </main>
+      <Footer />
     </>
   );
 }
-
-export default App;
