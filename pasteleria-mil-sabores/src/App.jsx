@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import Header from './components/Header.jsx';
+import AppNavbar from './components/layout/Navbar.jsx';
 import Footer from './components/layout/Footer.jsx';
 import Home from './components/Home.jsx';
 import Catalogo from './components/Catalogo.jsx';
@@ -10,12 +10,13 @@ import TerminosDeServicio from './components/TerminosDeServicio.jsx';
 import Contacto from './components/Contacto.jsx';
 import './styles/theme.css';
 
+
 function App() {
   return (
     <>
       <React.StrictMode>
         <BrowserRouter>
-          <Header />
+          <AppNavbar />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalogo" element={<Catalogo />} />
