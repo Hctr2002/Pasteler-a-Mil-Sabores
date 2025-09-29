@@ -141,6 +141,7 @@ button:hover, .btn:hover {
   color: #8B4513;
 }
 
+
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
@@ -227,6 +228,14 @@ main {
   margin-bottom: 0.75rem;
   color: var(--text-2);
 }
+
+.filter-title {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--text-2);
+}
+
+
 
 .filter-options {
   display: flex;
@@ -430,3 +439,19 @@ main {
 .contenido {
   background: var(--bg);
 }
+
+.pastel-img {
+  width: 100%;          /* ocupa todo el ancho del card */
+  height: 180px;        /* alto fijo para todas */
+  object-fit: contain;  /* ajusta la imagen sin deformar ni cortar */
+  object-position: center;
+  background-color: #fff5e1; /* color de fondo detrás si sobra espacio */
+  border-radius: 8px;
+  padding: 5px; /* opcional, para que no quede pegada al borde */
+}
+
+
+
+
+
+
