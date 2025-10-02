@@ -6,6 +6,12 @@
   padding: 2rem; 
 }
 
+html, body {
+  background-color: #FFF5E1 !important;
+  margin: 0;
+  padding: 0;
+}
+
 
 .screen + .screen {
   margin-top: 2rem;
@@ -14,7 +20,6 @@
 /* =============================================
    VARIABLES Y COLORES (La base de todo)
    ============================================= */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap');
 :root {
   --bg: #FFF5E1;
   --surface: #fffaf3;
@@ -39,12 +44,22 @@ html {
   scroll-behavior: smooth;
 }
 
+.contenido {
+  background: var(--bg);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 body {
   margin: 0;
-  font-family: "Lato", sans-serif; /* Usaremos Lato como fuente base */
+  font-family: "Lato", sans-serif;
   background: var(--bg);
+  min-height: 100vh;
   color: var(--text);
   line-height: 1.6;
+}
+html {
+  background-color: var(--bg); /* Mismo color */
 }
 
 /* Tipografía especial para los títulos */
@@ -142,13 +157,6 @@ button:hover, .btn:hover {
 }
 
 
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
 #root {
   display: flex;
   flex-direction: column;
@@ -341,7 +349,7 @@ main {
 /* src/components/Footer.css */
 
 .main-footer {
-  padding: 1.25rem;
+  padding: 4rem;
   color: var(--text-2); /* Usamos las variables de color que ya tienes */
   text-align: center;
   background: linear-gradient(0deg, #eed9b1ee, #fff5e1ee);
@@ -436,19 +444,16 @@ main {
     border-color: #8B4513;
 }
 
-.contenido {
-  background: var(--bg);
-}
+
 
 .pastel-img {
-  width: 100%;          /* ocupa todo el ancho del card */
-  height: 180px;        /* alto fijo para todas */
-  object-fit: contain;  /* ajusta la imagen sin deformar ni cortar */
+  width: 100%;
+  height: 180px;
+  object-fit: cover;   /* llena el espacio, aunque recorte un poco */
   object-position: center;
-  background-color: #fff5e1; /* color de fondo detrás si sobra espacio */
   border-radius: 8px;
-  padding: 5px; /* opcional, para que no quede pegada al borde */
 }
+
 
 
 

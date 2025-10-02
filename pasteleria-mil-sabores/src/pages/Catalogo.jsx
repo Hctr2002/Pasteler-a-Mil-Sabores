@@ -8,7 +8,7 @@ export default function Catalogo(){
       <div className="row g-3">
         {
           pasteles.map(p => (
-            <div className="col-12 col-md-6 col-xl4" key={p.id}>
+            <div className="col-12 col-md-6 col-xl-4" key={p.id}>
               <PastelCard pastel={p}/>
             </div>
           ))
