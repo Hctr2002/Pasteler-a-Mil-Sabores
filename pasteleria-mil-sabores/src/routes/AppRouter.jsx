@@ -1,16 +1,20 @@
 import { Routes, Route } from "react-router-dom";
-import Home from '../pages/Home.jsx';
+import PrincipalPage from '../pages/PrincipalPage.jsx';
 import Catalogo from '../pages/Catalogo.jsx';
 import PoliticaDePrivacidad from '../pages/PoliticaDePrivacidad.jsx';
 import TerminosDeServicio from '../pages/TerminosDeServicio.jsx';
 import PastelDetalle from "../pages/PastelDetalle.jsx";
 import Contacto from '../pages/Contacto.jsx';
-import Carrito from '../pages/carrito';
+import Carrito from '../pages/carrito.jsx';
+import Home from '../pages/Home.jsx'
+import Blogs from "../pages/blogs.jsx";
 
 export default function AppRouter(){
     return(
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<PrincipalPage />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/politica-de-privacidad" element={<PoliticaDePrivacidad />} />
             <Route path="/terminos-de-servicio" element={<TerminosDeServicio />} />

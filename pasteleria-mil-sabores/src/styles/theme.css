@@ -57,6 +57,14 @@ html {
   margin: 1rem;
 }
 
+.form-buscar {
+  margin: 1rem;
+  display: grid;
+  gap: .85rem;
+  margin-top: 0em;
+  unicode-bidi: isolate;
+}
+
 body {
   margin: 0;
   font-family: "Lato", sans-serif;
@@ -156,6 +164,7 @@ button, .btn {
   letter-spacing: .2px; 
   text-shadow: 0 1px rgba(255,255,255,.2);
   transition: background .2s, color .2s;
+  border-radius: 10px !important;
 }
 
 button:hover, .btn:hover {
@@ -176,6 +185,7 @@ main {
 
 
 .screen {
+  margin: 1rem;
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -250,7 +260,35 @@ main {
   color: var(--text-2);
 }
 
-
+input {
+  margin: 1rem;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    box-sizing: border-box;
+    padding-block: 1px;
+    padding-inline: 2px;
+    overflow-clip-margin: 0px !important;
+    overflow: clip !important;
+    font: inherit;
+    width: 100%;
+    padding: .7rem .8rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #fff5e1;
+    color: var(--text);
+}
 
 .filter-options {
   display: flex;

@@ -1,13 +1,8 @@
-// src/components/Contacto.jsx
-
-import React from 'react';
 import '../styles/theme.css';
 
 function Contacto() {
   return (
-    // Quitamos la clase de aquí para ponerla en el div de abajo
     <main> 
-      {/* ↓↓ ESTE ES EL NUEVO CONTENEDOR QUE LO ENVUELVE TODO ↓↓ */}
       <div className="contact-container"> 
         
         <h2>Contáctanos</h2>
@@ -20,8 +15,6 @@ function Contacto() {
           <li>📞 Teléfono: +56 9 1234 5678</li>
           <li>✉️ Correo: <a href="mailto:contacto@milsabores.cl">contacto@milsabores.cl</a></li>
         </ul>
-
-        {/* El formulario ahora está dentro del contenedor principal */}
         <form className="contact-form">
           <div className="form-group">
             <label htmlFor="nombre">Nombre:</label>
@@ -37,8 +30,7 @@ function Contacto() {
           </div>
           <button type="submit">Enviar</button>
         </form>
-
-      </div> {/* ← Cerramos el nuevo contenedor */}
+      </div>
     </main>
   );
 }

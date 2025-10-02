@@ -1,33 +1,30 @@
-// src/components/Home.jsx
+import { pasteles } from "../utils/mockPasteles"
+import { PastelCard } from "../components/PastelCard"
+import '../styles/theme.css';
 
-import React from 'react';
-import '../styles/theme.css'; // Importamos su archivo de estilos
-
-function Home() {
-  return (
-    <section className="home-content">
-      <div className="screen">
-        <h2>Bienvenido a Mil Sabores</h2>
-        <p>
-          Descubre nuestros deliciosos pasteles y postres artesanales. ¡Estamos aquí para satisfacer tus antojos!
-        </p>
-      </div>
-
-      <div className="screen">
-        <h2>Sobre nosotros</h2>
-        <p>
-          Pastelería 1000 Sabores celebra su 50 aniversario como un referente en la repostería chilena. Famosa por su participación en un récord Guinness en 1995, cuando colaboró en la creación de la torta más grande del mundo, la pastelería busca renovar su sistema de ventas online para ofrecer una experiencia de compra moderna y accesible para sus clientes.
-        </p>
-      </div>
-
-      <div className="screen">
-        <h2>Nuestra Misión</h2>
-        <p>
-          Ofrecer una experiencia dulce y memorable a nuestros clientes, proporcionando tortas y productos de repostería de alta calidad para todas las ocasiones, mientras celebramos nuestras raíces históricas y fomentamos la creatividad en la repostería.
-        </p>
-      </div>
-    </section>
-  );
+export default function Home(){
+    return(
+        <>
+            <section id="home" className='screen'>
+                <h2 className="home-title">🎂 Pastelería Mil Sabores</h2>
+                <p>Bienvenido a nuestra pastelería, donde cada bocado es una celebración de sabor y tradición.</p>
+                <p>Explora nuestro catálogo de deliciosos pasteles y postres artesanales, hechos con amor y dedicación para ti.</p>
+            </section>
+            <form className='form-buscar' aria-label="Buscador de pasteles" data-screen="home">
+                <label htmlFor="q">¿Que te gustaría comer este día?</label>
+                <input id="q" name="q" type="search" placeholder="Buscar pasteles..." aria-label="Buscar pasteles"/>
+                <button className="btn-search">Buscar</button>
+            </form>
+            <div className="row g-3">
+                <h4>Destacados de hoy</h4>
+                {
+                    pasteles.slice(0, 3).map(p => (
+                        <div className="col-12 col-md-6 col-xl-4" key={p.id}>
+                        <PastelCard pastel={p} />
+                        </div>
+                    ))
+                }
+            </div>
+        </>
+    );
 }
-
-export default Home;
