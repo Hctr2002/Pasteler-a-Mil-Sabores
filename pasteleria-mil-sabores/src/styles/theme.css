@@ -44,10 +44,17 @@ html {
   scroll-behavior: smooth;
 }
 
+.catalogo-theme{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  padding-bottom: 3rem;
+}
+
 .contenido {
   background: var(--bg);
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-bottom: 3rem;
+  margin: 1rem;
 }
 
 body {
@@ -444,14 +451,56 @@ main {
     border-color: #8B4513;
 }
 
+.pastel-card {
+  background: #fff8f2; /* un tono crema/pastelería */
+  border-radius: 16px;
+  border: 1px solid #f2d7c9; /* borde sutil */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
 
+.pastel-card:hover {
+  transform: translateY(-6px); /* se eleva un poco */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.pastel-card .card-title {
+  font-family: 'Georgia', serif; /* tipografía elegante */
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #6b3e2e; /* marrón chocolate */
+}
+
+.pastel-card .card-text {
+  color: #4e3b31;
+  font-size: 0.95rem;
+}
 
 .pastel-img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;   /* llena el espacio, aunque recorte un poco */
-  object-position: center;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #f2d7c9;
+}
+
+.btn.pastel-btn {
+  background-color: #8B4513 !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: bold;
   border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.pastel-btn:hover {
+  background-color: #d9896c !important;
+  transform: translateY(-2px);
+}
+
+.btn.pastel-btn:active {
+  background-color: #b8745d !important;
+  transform: translateY(0);
 }
 
 
