@@ -20,7 +20,7 @@ export function PastelCard({ pastel }) {
                 <div className="d-flex gap-2">
                     <Button 
                         as={Link} 
-                        to={`/pasteles/${pastel.id}`} 
+                        to={`/pastel/${pastel.id}`} 
                         className="btn pastel-btn" 
                         size="sm"
                     >

@@ -541,6 +541,87 @@ input {
   transform: translateY(0);
 }
 
+.pastel-detalle-container {
+  border: 1px solid #e6d3b3;
+  background-color: #f7ebd8; /* Fondo crema suave */
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Títulos */
+.pastel-detalle-container h1,
+.pastel-detalle-container h2 {
+  color: #5b2c06; /* Marrón oscuro */
+  font-family: 'Georgia', serif;
+}
+
+.pastel-detalle-container p.text-secondary {
+  color: #7b5e45 !important;
+}
+
+/* Imagen */
+.pastel-detalle-img {
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Formulario */
+.pastel-form {
+  background-color: #fdf7ef;
+  border: 1px solid #e0c9a6;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.pastel-form label {
+  color: #5b2c06;
+  font-weight: 600;
+}
+
+.pastel-form select,
+.pastel-form input {
+  border: 1px solid #d5b896;
+  border-radius: 6px;
+  background-color: #fffdf9;
+  color: #4a3324;
+}
+
+/* Precio y botón */
+.pastel-precio {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: #4a3324;
+}
+
+.pastel-precio button {
+  background-color: #8b4a14; /* Marrón cálido */
+  color: #fff8e6;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.pastel-precio button:hover {
+  background-color: #6f380d;
+}
+
+/* Bordes suaves de los selects al enfocar */
+.pastel-form select:focus,
+.pastel-form input:focus {
+  outline: none;
+  border-color: #b17a45;
+  box-shadow: 0 0 0 2px rgba(177, 122, 69, 0.25);
+}
+
 
 
 
