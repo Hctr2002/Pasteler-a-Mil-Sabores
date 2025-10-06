@@ -56,7 +56,7 @@ export default function PastelDetalle() {
             onChange={e => {
               const selected = Array.from(e.target.selectedOptions).map(o => o.value);
               if (selected.includes("sinExtras")) {
-                setExtras(["sinExtras"]);
+                setExtras([]);
               } else {
                 setExtras(selected.filter(opt => opt !== "sinExtras"));
               }
