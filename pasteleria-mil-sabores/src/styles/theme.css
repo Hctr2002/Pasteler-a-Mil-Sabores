@@ -605,7 +605,6 @@ input {
   background-color: #8b4a14; /* Marrón cálido */
   color: #fff8e6;
   border: none;
-  padding: 0.75rem 1.5rem;
   border-radius: 6px;
   transition: background-color 0.2s ease;
 }
