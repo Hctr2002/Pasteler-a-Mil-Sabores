@@ -4,12 +4,22 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AppRouter from './routes/AppRouter.jsx';
+
+import { ProfileProvider } from './contexts/ProfileContext';
+import { CartProvider } from './contexts/CartContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
     <BrowserRouter >
-      <App/>
+      <ProfileProvider>
+        <CartProvider>
+          <App>
+            <AppRouter/>
+          </App>
+        </CartProvider>
+      </ProfileProvider>
     </BrowserRouter>
   </React.StrictMode>
   
