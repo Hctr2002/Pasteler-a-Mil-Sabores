@@ -9,6 +9,8 @@ import Carrito from '../pages/carrito.jsx';
 import Home from '../pages/Home.jsx'
 import Blogs from "../pages/blogs.jsx";
 import NoticiaDetalle from "../pages/noticias.jsx";
+import Loginpage from "../pages/Loginpage.jsx";
+import Register from "../pages/register.jsx";
 
 export default function AppRouter(){
     return(
@@ -23,6 +25,8 @@ export default function AppRouter(){
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/pastel/:id" element={<PastelDetalle />} />
             <Route path="/carrito" element={<Carrito/>}/>
+            <Route path="/Loginpage" element={<Loginpage/>}/>
+            <Route path="/register" element={<Register/>}/>
         </Routes>
     );
 }

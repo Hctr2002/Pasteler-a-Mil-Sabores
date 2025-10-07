@@ -1,19 +1,24 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ProfileContext = createContext();
+// eslint-disable-next-line react-refresh/only-export-components
 export const useProfile = () => useContext(ProfileContext);
 
-const initial = {nombre: "", email: "", telefono: "", direccion: ""};
+const initial = { nombre: "", email: "", telefono: "", direccion: "" };
 
 export function ProfileProvider({ children }) {
-    const [profile, setProfile] = useLocalStorage("ds_profile", initial);
+  const [profile, setProfile] = useLocalStorage("ds_profile", initial);
 
-    const updateProfile = (patch) => useLocalStorage(p => ({...p, ...patch}));
+  const updateProfile = (patch) => {
+    setProfile((prev) => ({ ...prev, ...patch }));
+  };
 
-    const value = {profile, updateProfile};
+  const value = { profile, updateProfile };
 
-    return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;
-};
+  return (
+    <ProfileContext.Provider value={value}>
+      {children}
+    </ProfileContext.Provider>
+  );
+}
