@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
-const ProfileContext = createContext();
+export const ProfileContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useProfile = () => useContext(ProfileContext);
 

@@ -11,6 +11,7 @@ import Blogs from "../pages/blogs.jsx";
 import NoticiaDetalle from "../pages/noticias.jsx";
 import Loginpage from "../pages/Loginpage.jsx";
 import Register from "../pages/register.jsx";
+import Perfil from "../pages/perfil.jsx";
 
 export default function AppRouter(){
     return(
@@ -27,6 +28,7 @@ export default function AppRouter(){
             <Route path="/carrito" element={<Carrito/>}/>
             <Route path="/Loginpage" element={<Loginpage/>}/>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/perfil" element={<Perfil/>}/>
         </Routes>
     );
 }
