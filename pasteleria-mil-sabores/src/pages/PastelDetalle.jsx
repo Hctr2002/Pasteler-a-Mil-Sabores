@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { calcPricePastel } from '../utils/pricing.js';
 import { Form, Button, Image } from 'react-bootstrap';
 import '../styles/theme.css';
+import { useCart } from '../contexts/CartContext';
 
 export default function PastelDetalle() {
   const { id } = useParams();
@@ -14,6 +15,15 @@ export default function PastelDetalle() {
   const [extras, setExtras] = useState([]);
 
   const price = calcPricePastel({ size, type, extras });
+  const { addToCart } = useCart();
+  const [msg, setMsg] = useState('');
+
+  const handleAdd = () => {
+    const item = { ...pastel, size, type, extras, price, quantity: 1, subtotal: price };
+    addToCart(item);
+    setMsg('Producto agregado al carrito');
+    setTimeout(() => setMsg(''), 2500);
+  }
 
   if (!pastel) return <p>🍰 Pastel no encontrado.</p>;
 
@@ -72,10 +82,11 @@ export default function PastelDetalle() {
         <p>Mantén presionado Ctrl o (Cmd) para seleccionar varios.</p>
 
 
-          <div className="pastel-precio">
-          <strong>Precio: ${price.toLocaleString('es-CL')} CLP</strong>
-          <Button>Agregar al carrito</Button>
-        </div>
+          <div className="pastel-precio d-flex gap-2 align-items-center">
+            <strong>Precio: ${price.toLocaleString('es-CL')} CLP</strong>
+            <Button onClick={handleAdd}>Agregar al carrito</Button>
+            {msg && <span className="text-success">{msg}</span>}
+          </div>
       </Form>
   </div>
   );
