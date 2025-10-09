@@ -1,5 +1,7 @@
 import { pasteles } from "../utils/mockPasteles"
 import { PastelCard } from "../components/PastelCard"
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Catalogo(){
   return (
@@ -13,6 +15,7 @@ export default function Catalogo(){
             pasteles.map(p => (
               <div className="col-12 col-md-6 col-xl-4" key={p.id}>
                 <PastelCard pastel={p}/>
+                <ToastContainer />
               </div>
             ))
           }

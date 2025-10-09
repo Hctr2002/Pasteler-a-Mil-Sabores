@@ -5,6 +5,8 @@ import { calcPricePastel } from '../utils/pricing.js';
 import { Form, Button, Image } from 'react-bootstrap';
 import '../styles/theme.css';
 import { useCart } from '../contexts/CartContext';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function PastelDetalle() {
   const { id } = useParams();
@@ -16,13 +18,19 @@ export default function PastelDetalle() {
 
   const price = calcPricePastel({ size, type, extras });
   const { addToCart } = useCart();
-  const [msg, setMsg] = useState('');
 
   const handleAdd = () => {
     const item = { ...pastel, size, type, extras, price, quantity: 1, subtotal: price };
     addToCart(item);
-    setMsg('Producto agregado al carrito');
-    setTimeout(() => setMsg(''), 2500);
+
+    toast.success(`${pastel.title} agregado al carrito`, {
+      position: "bottom-center",
+      autoClose: 1400,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false
+    });
   }
 
   if (!pastel) return <p>🍰 Pastel no encontrado.</p>;
@@ -81,13 +89,12 @@ export default function PastelDetalle() {
         </Form.Group>
         <p>Mantén presionado Ctrl o (Cmd) para seleccionar varios.</p>
 
-
-          <div className="pastel-precio d-flex gap-2 align-items-center">
-            <strong>Precio: ${price.toLocaleString('es-CL')} CLP</strong>
-            <Button onClick={handleAdd}>Agregar al carrito</Button>
-            {msg && <span className="text-success">{msg}</span>}
-          </div>
+        <div className="pastel-precio d-flex gap-2 align-items-center">
+          <strong>Precio: ${price.toLocaleString('es-CL')} CLP</strong>
+          <Button onClick={handleAdd}>Agregar al carrito</Button>
+        </div>
       </Form>
-  </div>
+      <ToastContainer />
+    </div>
   );
 }
