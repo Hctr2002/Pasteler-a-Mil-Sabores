@@ -1142,3 +1142,19 @@ input {
   }
 }
 
+@media (max-width: 992px) and (min-width: 769px) {
+  .catalogo-layout {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .filter-sidebar {
+    flex: 0 0 200px; /* filtro más estrecho */
+    width: 200px;
+  }
+
+  .catalogo-items {
+    flex: 1;
+  }
+}
+
