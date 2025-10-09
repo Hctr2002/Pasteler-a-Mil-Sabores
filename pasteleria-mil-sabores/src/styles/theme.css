@@ -48,7 +48,7 @@ html {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1rem;
-  padding-bottom: 3rem;
+  padding-bottom: 3rem !important;
 }
 
 .contenido {
@@ -1069,3 +1069,76 @@ input {
     font-size: 0.8rem;
   }
 }
+
+.filter-sidebar {
+  background-color: #fff8f0;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+  padding: 0.8rem;
+  border: 1px solid #f0e6dc;
+  border-radius: 8px;
+  background-color: #fffdf8;
+}
+
+.filter-section h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  gap: 0.4rem;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+.catalogo-layout {
+  display: flex;
+  gap: 2rem; /* Espacio entre filtro y catálogo */
+  flex-wrap: wrap; /* Que sea responsive */
+}
+
+.filter-sidebar {
+  flex: 0 0 250px; /* Fijo ancho del filtro */
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.catalogo-items {
+  flex: 1; /* Ocupa el resto del espacio */
+}
+
+/* Responsivo: para pantallas pequeñas poner en vertical */
+@media (max-width: 768px) {
+  .catalogo-layout {
+    flex-direction: column;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+  }
+}
+
