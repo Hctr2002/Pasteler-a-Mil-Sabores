@@ -770,6 +770,66 @@ input {
   cursor: pointer;
 }
 
+.alert-info {
+    --bs-alert-color: var(--text) !important;
+    --bs-alert-bg: var(--surface) !important;
+    --bs-alert-border-color: var(--border) !important;
+    --bs-alert-link-color: var(--text) !important;
+}
+
+.btn-secondary {
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: #d14913 !important; /* Caramelo */
+  --bs-btn-border-color: #b35c1f !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #a84b1c !important; /* Más oscuro al pasar el mouse */
+  --bs-btn-hover-border-color: #944018 !important;
+  --bs-btn-focus-shadow-rgb: 200, 103, 35 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #8b3b15 !important;
+  --bs-btn-active-border-color: #7a3513 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #d59b70 !important; /* tono suave para disabled */
+  --bs-btn-disabled-border-color: #d59b70 !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(139, 69, 19, 0.18) !important;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff !important;
+  --bs-btn-bg: var(--bs-btn-active-bg) !important; /* Caramelo */
+  --bs-btn-border-color: #b35c1f !important;
+  --bs-btn-hover-color: #fff !important;
+  --bs-btn-hover-bg: #a84b1c !important; /* Más oscuro al pasar el mouse */
+  --bs-btn-hover-border-color: #944018 !important;
+  --bs-btn-focus-shadow-rgb: 200, 103, 35 !important;
+  --bs-btn-active-color: #fff !important;
+  --bs-btn-active-bg: #8b3b15 !important;
+  --bs-btn-active-border-color: #7a3513 !important;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15) !important;
+  --bs-btn-disabled-color: #fff !important;
+  --bs-btn-disabled-bg: #d59b70 !important; /* tono suave para disabled */
+  --bs-btn-disabled-border-color: #d59b70 !important;
+  font-weight: 600 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.15) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(139, 69, 19, 0.18) !important;
+}
+
+
 /* === Perfil moderno con panel lateral === */
 .perfil-modern-container {
   display: flex;
