@@ -2,6 +2,8 @@ import { pasteles } from "../utils/mockPasteles";
 import { PastelCard } from "../components/PastelCard";
 import { useState } from "react";
 import '../styles/theme.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [query, setQuery] = useState("");
@@ -54,6 +56,7 @@ export default function Home() {
         ) : (
           <p>No se encontraron pasteles con ese nombre 😢</p>
         )}
+        <ToastContainer />
       </div>
     </>
   );
