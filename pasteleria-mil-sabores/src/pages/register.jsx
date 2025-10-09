@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState} from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import "../styles/theme.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+// ...existing code...
 export default function Register() {
   const navigate = useNavigate();
   const [storedUser, setStoredUser] = useLocalStorage("ds_user", null);
@@ -44,102 +48,56 @@ export default function Register() {
 
     setStoredUser(newUser);
     setError("");
-    alert("Registro exitoso. Ahora puedes iniciar sesión.");
-    navigate("/loginpage");
-    };
+
+    toast.success("Registro exitoso", {
+      position: "bottom-center",
+      autoClose: 1400,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      onClose: () => {
+        navigate("/loginpage");
+      },
+    });
+  };
 
   return (
-    <div style={{ maxWidth: 420, margin: "40px auto", padding: "1rem" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Registro de usuario</h2>
-
+    <div className="register-screen">
+      <h2>Registro de usuario</h2>
       <form onSubmit={handleRegister}>
         <label htmlFor="nombre">Nombre completo</label>
-        <input
-          id="nombre"
-          type="text"
-          name="nombre"
-          placeholder="Tu nombre"
-          value={form.nombre}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "0.75rem" }}
+        <input id="nombre" type="text" name="nombre" placeholder="Tu nombre" value={form.nombre} onChange={handleChange} required style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="email">Correo electrónico</label>
-        <input
-          id="email"
-          type="email"
-          name="email"
-          placeholder="tu@correo.com"
-          value={form.email}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "0.75rem" }}
+        <input id="email" type="email" name="email" placeholder="tu@correo.com" value={form.email} onChange={handleChange} required style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="telefono">Teléfono</label>
-        <input
-          id="telefono"
-          type="tel"
-          name="telefono"
-          placeholder="+56 9 1234 5678"
-          value={form.telefono}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "0.75rem" }}
+        <input id="telefono" type="tel" name="telefono" placeholder="+56912345678" value={form.telefono} onChange={handleChange} required style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="direccion">Dirección</label>
-        <input
-          id="direccion"
-          type="text"
-          name="direccion"
-          placeholder="Calle 123, Ciudad"
-          value={form.direccion}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "0.75rem" }}
+        <input id="direccion" type="text" name="direccion" placeholder="Calle 123, Ciudad" value={form.direccion} onChange={handleChange} required style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="password">Contraseña</label>
-        <input
-          id="password"
-          type="password"
-          name="password"
-          placeholder="••••••••"
-          value={form.password}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "0.75rem" }}
+        <input id="password" type="password" name="password" placeholder="••••••••" value={form.password} onChange={handleChange} required style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="confirmPassword">Confirmar contraseña</label>
-        <input
-          id="confirmPassword"
-          type="password"
-          name="confirmPassword"
-          placeholder="Repite tu contraseña"
-          value={form.confirmPassword}
-          onChange={handleChange}
-          required
-          style={{ width: "100%", marginBottom: "1rem" }}
+        <input id="confirmPassword" type="password" name="confirmPassword" placeholder="Repite tu contraseña" value={form.confirmPassword} onChange={handleChange} required style={{ width: "100%", marginBottom: "1rem" }}
         />
-
-        <button type="submit" style={{ width: "100%" }}>
+        <button type="submit" className="btn-register">
           Registrarse
         </button>
       </form>
-
       {error && (
         <p style={{ color: "red", marginTop: "0.75rem" }} role="alert">
           {error}
         </p>
       )}
-
-      <div style={{ marginTop: "1rem", textAlign: "center" }}>
+      <div className="aux-link">
         <span>¿Ya tienes cuenta? </span>
         <Link to="/loginpage">Inicia sesión</Link>
       </div>
+      <ToastContainer />
     </div>
   );
 }

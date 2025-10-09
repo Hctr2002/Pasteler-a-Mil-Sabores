@@ -621,9 +621,156 @@ input {
   box-shadow: 0 0 0 2px rgba(177, 122, 69, 0.25);
 }
 
+/* ...existing code... */
 
+/* Diseño específico para la pantalla de registro */
+.register-screen {
+  max-width: 480px;
+  margin: 48px auto;
+  padding: 1.25rem;
+  background: linear-gradient(180deg, var(--surface), #fffaf6 60%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(75,46,19,0.06);
+}
 
+.register-screen h2 {
+  margin-bottom: 1rem;
+  color: var(--text-2);
+  font-size: 1.35rem;
+  text-align: center;
+}
 
+.register-screen form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.register-screen label {
+  font-weight: 700;
+  color: #5b3824;
+  font-size: .95rem;
+}
+
+.register-screen input {
+  background: #fff7ef;
+  border: 1px solid var(--border);
+  padding: .75rem .9rem;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+.register-screen input:focus {
+  outline: none;
+  border-color: #b17a45;
+  box-shadow: 0 6px 16px rgba(177,122,69,0.08);
+}
+
+/* Botón de registro */
+.btn-register {
+  width: 100%;
+  padding: .85rem;
+  background: linear-gradient(180deg,#8B4513,#6b3e2e);
+  color: #fff;
+  font-weight: 800;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(139,69,19,0.12);
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+
+.btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(139,69,19,0.14);
+}
+
+/* Link de login */
+.register-screen .aux-link {
+  text-align: center;
+  margin-top: .85rem;
+  color: var(--text-2);
+}
+
+/* =======================
+   Estilos para react-toastify integrados al tema
+   ======================= */
+
+/* Contenedor central inferior */
+.Toastify__toast-container.Toastify__toast-container--bottom-center {
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 420px;
+  padding: 0;
+  pointer-events: none; /* que el toast no interfiera con clicks fuera */
+}
+
+/* Toast base */
+.Toastify__toast {
+  pointer-events: auto;
+  border-radius: 12px;
+  padding: .65rem 1rem;
+  box-shadow: 0 10px 28px rgba(75,46,19,0.12);
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Success variant acorde al tema */
+.Toastify__toast--success {
+  background: linear-gradient(180deg,#2ea14f,#238c3f);
+  color: #fff;
+}
+
+/* Progress bar que combine con el tema */
+.Toastify__progress-bar--success {
+  background: linear-gradient(90deg, rgba(255,192,203,0.8), rgba(255,255,255,0.35));
+}
+
+/* Animación personalizada (entrada / salida) */
+@keyframes toastSlideIn {
+  from {
+    transform: translateY(12px) translateX(-50%) scale(.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    transform: translateY(0) translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(12px) translateX(-50%) scale(.98);
+    opacity: 0;
+  }
+}
+
+/* Aplica la animación en la aparición; react-toastify añade clases de entrada/salida */
+.Toastify__toast--enter {
+  animation: toastSlideIn 360ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+.Toastify__toast--exit {
+  animation: toastSlideOut 260ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+/* Asegurar que el texto pequeño/ayuda se vea bien */
+.Toastify__close-button {
+  color: rgba(255,255,255,0.9);
+  opacity: 0.9;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* ...existing code... */
 
 
 
