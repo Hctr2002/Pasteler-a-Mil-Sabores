@@ -4,7 +4,7 @@ import { useCart } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 
 export default function Carrito(){
-    const { cart, total, clearCart, orders, checkout } = useCart();
+    const { cart, total, clearCart, checkout } = useCart();
     const [metodo, setMetodo] = useState('Efectivo');
     const [message, setMessage] = useState('');
 
@@ -53,16 +53,6 @@ export default function Carrito(){
             {message && <div className="mt-3 alert alert-success">{message}</div>}
 
             <hr />
-            <h4>Pedidos previos</h4>
-            {orders && orders.length ? (
-                <ul>
-                    {orders.map(o => (
-                        <li key={o.id}>{o.id} - {new Date(o.fecha).toLocaleString()} - ${o.total.toLocaleString()}</li>
-                    ))}
-                </ul>
-            ) : (
-                <div className="text-muted">No hay pedidos realizados.</div>
-            )}
         </div>
     )
 }

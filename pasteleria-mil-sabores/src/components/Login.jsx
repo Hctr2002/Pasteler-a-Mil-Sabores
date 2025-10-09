@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useProfile } from "../contexts/ProfileContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -38,7 +40,18 @@ export default function Login() {
       telefono: storedUser.telefono ?? "",
       direccion: storedUser.direccion ?? "",
     });
-    navigate("/perfil"); // opcional: redirige al perfil tras login
+
+    toast.success("Inicio de sesión exitoso", {
+      position: "bottom-center",
+      autoClose: 1400,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      onClose: () => {
+        navigate("/");
+      },
+    });
   };
 
   return (
@@ -85,6 +98,9 @@ export default function Login() {
         <span>¿No tienes cuenta? </span>
         <Link to="/register">Regístrate ahora</Link>
       </div>
+
+      {/* Contenedor del toast */}
+      <ToastContainer />
     </div>
   );
 }

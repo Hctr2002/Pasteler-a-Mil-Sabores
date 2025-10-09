@@ -770,7 +770,192 @@ input {
   cursor: pointer;
 }
 
-/* ...existing code... */
+/* === Perfil moderno con panel lateral === */
+.perfil-modern-container {
+  display: flex;
+  max-width: 900px;
+  margin: 48px auto;
+  background: linear-gradient(180deg, var(--surface), #fffaf6 60%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(75, 46, 19, 0.06);
+  overflow: hidden;
+}
+
+/* --- Sidebar --- */
+.perfil-sidebar {
+  width: 240px;
+  background: #fff7ef;
+  border-right: 1px solid var(--border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.perfil-sidebar h3 {
+  font-size: 1.2rem;
+  color: #8b4513;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+}
+
+.perfil-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.perfil-sidebar li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #4b2e13;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.perfil-sidebar li:hover {
+  background: rgba(177, 122, 69, 0.1);
+  transform: translateX(3px);
+}
+
+.perfil-sidebar li.active {
+  background: linear-gradient(180deg, #c76723, #944426b6);
+  color: #fff;
+}
+
+/* --- Botón de cerrar sesión --- */
+.btn-logout-modern {
+  width: 100%;
+  padding: 0.8rem !important;
+  background: linear-gradient(180deg, #8b4513, #6b3e2e) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 18px rgba(139, 69, 19, 0.12);
+  transition: transform 0.08s ease, box-shadow 0.12s ease;
+  margin-top: 1rem;
+}
+
+.btn-logout-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(139, 69, 19, 0.14);
+}
+
+/* --- Main content --- */
+.perfil-main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.perfil-main h2 {
+  color: var(--text-2);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.perfil-info-modern {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(139, 69, 19, 0.08);
+  color: #4b2e13;
+}
+
+.perfil-info-modern p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+}
+
+.perfil-info-modern strong {
+  color: #8b4513;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .perfil-modern-container {
+    flex-direction: column;
+  }
+
+  .perfil-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .perfil-sidebar ul {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .perfil-sidebar li {
+    margin: 0;
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* === Estilo de los pedidos en perfil === */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 4px 14px rgba(139, 69, 19, 0.08);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 69, 19, 0.12);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #8b4513;
+}
+
+.order-body p {
+  margin: 0.3rem 0;
+  color: #4b2e13;
+}
+
+.order-id {
+  background: #8b4513;
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.order-date {
+  font-size: 0.9rem;
+  color: #6b3e2e;
+}
+
+.no-orders {
+  color: #6b3e2e;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
 
 
 
