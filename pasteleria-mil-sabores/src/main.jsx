@@ -5,6 +5,7 @@ import App from './App.jsx';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppRouter from './routes/AppRouter.jsx';
+import { PastelesProvider } from './contexts/PastelesContext.jsx';
 
 import { ProfileProvider } from './contexts/ProfileContext';
 import { CartProvider } from './contexts/CartContext';
@@ -15,9 +16,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter >
       <ProfileProvider>
         <CartProvider>
-          <App>
-            <AppRouter/>
-          </App>
+          <PastelesProvider>
+            <App>
+              <AppRouter/>
+            </App>
+          </PastelesProvider>
         </CartProvider>
       </ProfileProvider>
     </BrowserRouter>

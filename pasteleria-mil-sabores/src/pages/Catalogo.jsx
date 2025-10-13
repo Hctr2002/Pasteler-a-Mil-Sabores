@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { pasteles } from "../utils/mockPasteles";
+import { usePasteles } from "../contexts/PastelesContext";
 import { PastelCard } from "../components/PastelCard";
 import { Filter } from "../components/Filter";
 import { ToastContainer } from "react-toastify";
@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/theme.css";
 
 export default function Catalogo() {
+  const { pasteles } = usePasteles();
+
   const [filters, setFilters] = useState({
     category: [],
     type: "",
@@ -31,10 +33,8 @@ export default function Catalogo() {
         <p>Explora nuestra selección de deliciosos pasteles y postres artesanales.</p>
 
         <div className="catalogo-layout">
-          {/* 🔹 Filtro */}
           <Filter onFilterChange={handleFilterChange} />
 
-          {/* 🔹 Listado de pasteles */}
           <div className="catalogo-items">
             <h4>Listado de pasteles</h4>
 
@@ -52,7 +52,6 @@ export default function Catalogo() {
           </div>
         </div>
 
-        {/* 🔹 ToastContainer */}
         <ToastContainer
           position="bottom-center"
           autoClose={1400}
@@ -62,7 +61,6 @@ export default function Catalogo() {
           draggable={false}
         />
       </div>
-
     </>
   );
 }

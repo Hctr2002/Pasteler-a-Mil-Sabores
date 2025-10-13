@@ -1,29 +1,14 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { pasteles as initialPasteles } from '../utils/mockPasteles.js';
+import { usePasteles } from '../contexts/PastelesContext';
 import '../styles/theme.css';
 
 const AdminPanel = () => {
-  const [pasteles, setPasteles] = useState([]);
-
-  useEffect(() => {
-    let storedPasteles = localStorage.getItem('pasteles');
-
-    if (storedPasteles) {
-      setPasteles(JSON.parse(storedPasteles));
-    } else {
-      localStorage.setItem('pasteles', JSON.stringify(initialPasteles));
-      setPasteles(initialPasteles);
-    }
-  }, []);
-
+  const { pasteles, updatePasteles } = usePasteles();
   const handleDelete = (id) => {
     if (window.confirm('¿Estás seguro de que quieres eliminar este pastel?')) {
       const updatedPasteles = pasteles.filter((pastel) => pastel.id !== id);
 
-      setPasteles(updatedPasteles);
-
-      localStorage.setItem('pasteles', JSON.stringify(updatedPasteles));
+      updatePasteles(updatedPasteles);
     }
   };
 
