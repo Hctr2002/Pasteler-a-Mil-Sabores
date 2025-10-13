@@ -32,7 +32,7 @@ export default function Login() {
         autoClose: 1400,
         hideProgressBar: true,
         onClose: () => {
-          navigate("/admin");
+          navigate("/");
         },
       });
       return; 

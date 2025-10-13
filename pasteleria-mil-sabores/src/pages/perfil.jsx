@@ -1,23 +1,24 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { ProfileContext } from "../contexts/ProfileContext";
-import { useCart } from "../contexts/CartContext"; // 👈 Importamos el contexto del carrito
+import { useProfile } from "../contexts/ProfileContext";
+import { useCart } from "../contexts/CartContext";
 import "../styles/theme.css";
 
 const Perfil = () => {
-  const { profile, setProfile } = useContext(ProfileContext);
-  const { orders } = useCart(); // 👈 Traemos los pedidos del carrito
+
+  const { profile, updateProfile } = useProfile();
+  const { orders } = useCart();
   const [activeSection, setActiveSection] = useState("info");
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("ds_profile");
-    if (typeof setProfile === "function") setProfile(null);
-    window.location.replace("/Loginpage");
+    updateProfile({ nombre: "", email: "", telefono: "", direccion: "", admin: false });
+    navigate("/loginpage");
   };
 
   return (
     <main className="perfil-modern-container">
-      {/* Sidebar */}
       <aside className="perfil-sidebar">
         <h3>Mi Cuenta</h3>
         <ul>
@@ -33,15 +34,19 @@ const Perfil = () => {
           >
             Mis pedidos
           </li>
+          {profile?.admin && (
+            <ul>
+              <li>
+                <Link to="/admin" className="admin-link">Panel de Administración</Link>
+              </li>
+            </ul>
+          )}
         </ul>
         <Button className="btn-logout-modern" onClick={handleLogout}>
           Cerrar sesión
         </Button>
       </aside>
-
-      {/* Contenido principal */}
       <section className="perfil-main">
-        {/* --- SECCIÓN INFORMACIÓN --- */}
         {activeSection === "info" && (
           <>
             <h2>Mi Información</h2>
@@ -57,8 +62,6 @@ const Perfil = () => {
             )}
           </>
         )}
-
-        {/* --- SECCIÓN PEDIDOS --- */}
         {activeSection === "pedidos" && (
           <>
             <h2>Mis Pedidos</h2>

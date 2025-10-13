@@ -11,6 +11,7 @@ import Blogs from "../pages/blogs.jsx";
 import Loginpage from "../pages/Loginpage.jsx";
 import Register from "../pages/register.jsx";
 import Perfil from "../pages/perfil.jsx";
+import AdminPanel from "../pages/AdminPanel.jsx";
 
 export default function AppRouter(){
     return(
@@ -27,6 +28,7 @@ export default function AppRouter(){
             <Route path="/Loginpage" element={<Loginpage/>}/>
             <Route path="/register" element={<Register/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
+            <Route path="/admin" element={<AdminPanel/>}/>
         </Routes>
     );
 }
