@@ -1247,3 +1247,50 @@ input {
 .btn-danger:hover {
   background-color: #c82333;
 }
+
+/* /src/styles/FormularioPastel.css */
+
+.form-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.pastel-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pastel-form label {
+  font-weight: bold;
+  margin-bottom: -10px;
+  color: #555;
+}
+
+.pastel-form input,
+.pastel-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.pastel-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-actions{
+  margin-left: 10px;
+}

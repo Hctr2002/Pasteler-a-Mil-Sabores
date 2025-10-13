@@ -12,6 +12,7 @@ import Loginpage from "../pages/Loginpage.jsx";
 import Register from "../pages/register.jsx";
 import Perfil from "../pages/perfil.jsx";
 import AdminPanel from "../pages/AdminPanel.jsx";
+import FormularioPastel from "../pages/FormularioPastel.jsx";
 
 export default function AppRouter(){
     return(
@@ -29,6 +30,7 @@ export default function AppRouter(){
             <Route path="/register" element={<Register/>}/>
             <Route path="/perfil" element={<Perfil/>}/>
             <Route path="/admin" element={<AdminPanel/>}/>
+            <Route path="/admin/pastel/editar/:id" element={<FormularioPastel/>}/>
         </Routes>
     );
 }
