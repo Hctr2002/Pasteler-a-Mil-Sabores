@@ -40,18 +40,6 @@ export function NoticiaCard({ noticia }) {
                     <small className="text-muted">
                         **Fuente:** {noticia.source} | **Publicado:** {formatTimestamp(noticia.timestamp)}
                     </small>
-                    
-                    {/* Botón para ver el detalle de la noticia */}
-                    <Button 
-                        as={Link} 
-                        // Asume que la ruta de detalle será /noticias/ID_DE_LA_NOTICIA
-                        to={`/noticias/${noticia.id}`} 
-                        className="btn noticia-btn" 
-                        size="sm"
-                        variant="outline-primary" // Cambiado el color del botón para diferenciarlo
-                    >
-                        Leer más ➡️
-                    </Button>
                 </div>
             </Card.Body>
         </Card>

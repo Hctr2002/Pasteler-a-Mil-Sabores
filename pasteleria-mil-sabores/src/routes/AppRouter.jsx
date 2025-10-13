@@ -8,7 +8,6 @@ import Contacto from '../pages/Contacto.jsx';
 import Carrito from '../pages/carrito.jsx';
 import Home from '../pages/Home.jsx'
 import Blogs from "../pages/blogs.jsx";
-import NoticiaDetalle from "../pages/noticias.jsx";
 import Loginpage from "../pages/Loginpage.jsx";
 import Register from "../pages/register.jsx";
 import Perfil from "../pages/perfil.jsx";
@@ -19,7 +18,6 @@ export default function AppRouter(){
             <Route path="/" element={<PrincipalPage />} />
             <Route path="/home" element={<Home />} />
             <Route path="/blogs" element={<Blogs />} />
-            <Route path="/noticias/:id" element={<NoticiaDetalle />} />
             <Route path="/catalogo" element={<Catalogo />} />
             <Route path="/politica-de-privacidad" element={<PoliticaDePrivacidad />} />
             <Route path="/terminos-de-servicio" element={<TerminosDeServicio />} />
