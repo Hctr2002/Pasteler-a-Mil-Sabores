@@ -20,6 +20,24 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
+    if (form.email === "admin@pasteleria.com" && form.password === "admin123") {
+      updateProfile({
+        nombre: "Administrador",
+        email: form.email,
+        admin: true,
+      });
+
+      toast.success("Bienvenido, Administrador", {
+        position: "bottom-center",
+        autoClose: 1400,
+        hideProgressBar: true,
+        onClose: () => {
+          navigate("/admin");
+        },
+      });
+      return; 
+    }
+
     if (!storedUser) {
       setError("No hay usuario registrado. Regístrate para continuar.");
       return;
@@ -39,15 +57,13 @@ export default function Login() {
       email: storedUser.email,
       telefono: storedUser.telefono ?? "",
       direccion: storedUser.direccion ?? "",
+      admin: false,
     });
 
     toast.success("Inicio de sesión exitoso", {
       position: "bottom-center",
       autoClose: 1400,
       hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
       onClose: () => {
         navigate("/");
       },
@@ -57,7 +73,6 @@ export default function Login() {
   return (
     <div style={{ maxWidth: 420, margin: "40px auto", padding: "1rem" }}>
       <h2 style={{ marginBottom: "1rem" }}>Iniciar sesión</h2>
-
       <form onSubmit={handleLogin}>
         <label htmlFor="email">Correo electrónico</label>
         <input
@@ -70,7 +85,6 @@ export default function Login() {
           required
           style={{ width: "100%", marginBottom: "0.75rem" }}
         />
-
         <label htmlFor="password">Contraseña</label>
         <input
           id="password"
@@ -82,24 +96,19 @@ export default function Login() {
           required
           style={{ width: "100%", marginBottom: "1rem" }}
         />
-
         <button type="submit" style={{ width: "100%" }}>
           Ingresar
         </button>
       </form>
-
       {error && (
         <p style={{ color: "red", marginTop: "0.75rem" }} role="alert">
           {error}
         </p>
       )}
-
       <div style={{ marginTop: "1rem", textAlign: "center" }}>
         <span>¿No tienes cuenta? </span>
         <Link to="/register">Regístrate ahora</Link>
       </div>
-
-      {/* Contenedor del toast */}
       <ToastContainer />
     </div>
   );

@@ -1,11 +1,12 @@
 import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const ProfileContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useProfile = () => useContext(ProfileContext);
 
-const initial = { nombre: "", email: "", telefono: "", direccion: "" };
+const initial = { nombre: "", email: "", telefono: "", direccion: "", admin: false };
 
 export function ProfileProvider({ children }) {
   const [profile, setProfile] = useLocalStorage("ds_profile", initial);
