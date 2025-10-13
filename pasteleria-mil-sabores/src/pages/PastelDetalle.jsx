@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { pasteles } from '../utils/mockPasteles.js';
 import { useMemo, useState } from 'react';
+import { usePasteles } from '../contexts/PastelesContext';
 import { calcPricePastel } from '../utils/pricing.js';
 import { Form, Button, Image } from 'react-bootstrap';
 import '../styles/theme.css';
@@ -10,7 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function PastelDetalle() {
   const { id } = useParams();
-  const pastel = useMemo(() => pasteles.find(p => p.id === id), [id]);
+  const { pasteles } = usePasteles();
+
+  const pastel = useMemo(() => pasteles.find(p => p.id === id), [id, pasteles]);
 
   const [size, setSize] = useState(pastel?.size ?? '6/8 Personas');
   const [type, setType] = useState(pastel?.type ?? 'Redondo');
