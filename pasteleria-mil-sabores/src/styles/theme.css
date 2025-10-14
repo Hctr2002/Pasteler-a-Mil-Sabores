@@ -1291,18 +1291,46 @@ input {
   resize: vertical;
 }
 
-.form-actions{
-  margin-left: 10px;
+.form-actions {
+  display: flex; /* ¡La magia de Flexbox para alinear en horizontal! */
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 1rem; /* Crea un espacio entre los botones */
+  margin-top: 1.5rem; /* Espacio arriba del grupo de botones */
 }
 
-/* /src/styles/AdminPanel.css */
+.btn-submit {
+  padding: 12px 20px;
+  background-color: #A0522D; /* Un color café bonito como el de tu diseño */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
-/* --- AÑADE ESTO AL FINAL DE TU ARCHIVO --- */
+.btn-submit:hover {
+  background-color: #8B4513; /* Un café un poco más oscuro al pasar el mouse */
+}
 
-/* ----------------------------------- */
-/* Estilos para pantallas pequeñas (móviles) */
-/* Se aplicarán en pantallas de 768px o menos */
-/* ----------------------------------- */
+.btn-cancel {
+  padding: 12px 20px;
+  background-color: #D2B48C; /* Un color más suave para la acción secundaria */
+  color: #5D4037;
+  border: 1px solid #D2B48C;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #C1A37A;
+  border-color: #C1A37A;
+}
+
 @media (max-width: 768px) {
 
   /* Hacemos que la tabla se comporte como un bloque */

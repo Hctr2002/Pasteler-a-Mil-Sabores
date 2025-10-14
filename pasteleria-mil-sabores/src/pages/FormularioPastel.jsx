@@ -86,7 +86,7 @@ const FormularioPastel = () => {
           >
             Volver al Panel
           </button>
-          <button type="submit" className="form-actions">
+          <button type="submit" className="btn-submit">
             {id ? 'Guardar Cambios' : 'Crear Pastel'}
           </button>
         </div>
