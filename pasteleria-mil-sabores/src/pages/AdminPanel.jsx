@@ -34,13 +34,13 @@ const AdminPanel = () => {
         <tbody>
           {pasteles.map((pastel) => (
             <tr key={pastel.id}>
-              <td>
+              <td data-label="Foto">
                 <img src={pastel.photo} alt={pastel.title} className="pastel-photo-admin" />
               </td>
-              <td>{pastel.title}</td>
-              <td>{pastel.category}</td>
-              <td>{pastel.size}</td>
-              <td>
+              <td data-label="Título">{pastel.title}</td>
+              <td data-label="Categoría">{pastel.category}</td>
+              <td data-label="Tamaño">{pastel.size}</td>
+              <td data-label="Acciones">
                 <div className="action-buttons">
                   <Link to={`/admin/pastel/editar/${pastel.id}`} className="btn btn-secondary">
                     Editar

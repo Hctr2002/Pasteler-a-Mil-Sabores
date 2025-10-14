@@ -1294,3 +1294,107 @@ input {
 .form-actions{
   margin-left: 10px;
 }
+
+/* /src/styles/AdminPanel.css */
+
+/* --- AÑADE ESTO AL FINAL DE TU ARCHIVO --- */
+
+/* ----------------------------------- */
+/* Estilos para pantallas pequeñas (móviles) */
+/* Se aplicarán en pantallas de 768px o menos */
+/* ----------------------------------- */
+@media (max-width: 768px) {
+
+  /* Hacemos que la tabla se comporte como un bloque */
+  .admin-table, 
+  .admin-table thead, 
+  .admin-table tbody, 
+  .admin-table th, 
+  .admin-table td, 
+  .admin-table tr {
+    display: block;
+  }
+
+  /* 1. Ocultamos los encabezados de la tabla (Foto, Título, etc.) */
+  .admin-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .admin-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .admin-table td {
+    /* Cada celda ahora ocupa todo el ancho y tiene espacio */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%; /* Dejamos espacio para el "título" falso */
+    text-align: right; /* Alineamos el contenido a la derecha */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .admin-table td:last-child {
+    border-bottom: 0;
+  }
+
+  /* 2. Creamos "etiquetas" usando el pseudoelemento ::before */
+  /* Esto simula los encabezados que ocultamos */
+  .admin-table td:before {
+    content: attr(data-label); /* Usaremos un atributo HTML para la etiqueta */
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Ajustes específicos para las celdas */
+  .admin-table td:nth-of-type(1) { /* Foto */
+     padding-left: 10px; /* Quitamos el padding especial para la foto */
+     justify-content: center;
+  }
+   .admin-table td:nth-of-type(1):before {
+     display: none; /* No necesitamos la etiqueta "Foto" */
+  }
+  
+  .pastel-photo-admin {
+    width: 100%;
+    max-width: 200px; /* Hacemos la foto más grande en móvil */
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .action-buttons {
+    width: 100%;
+    display: flex; /* Aseguramos que sea un contenedor flex */
+    flex-wrap: wrap; /* ¡Esta es la línea mágica! Permite que los elementos bajen */
+    gap: 10px; /* Añade un espacio consistente entre los botones */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+  }
+
+  .btn {
+    flex-grow: 1; /* Hacemos que los botones ocupen el espacio disponible */
+    margin: 0 5px;
+  }
+  
+  /* Ajustamos el header del panel */
+  .admin-header {
+      flex-direction: column;
+      gap: 1rem;
+  }
+  
+  .admin-header h1 {
+      font-size: 1.5rem;
+  }
+}
