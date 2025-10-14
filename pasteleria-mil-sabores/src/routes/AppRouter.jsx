@@ -6,7 +6,7 @@ import TerminosDeServicio from '../pages/TerminosDeServicio.jsx';
 import PastelDetalle from "../pages/PastelDetalle.jsx";
 import Contacto from '../pages/Contacto.jsx';
 import Carrito from '../pages/carrito.jsx';
-import Home from '../pages/Home.jsx'
+import Home from '../pages/Home.jsx';
 import Blogs from "../pages/blogs.jsx";
 import Loginpage from "../pages/Loginpage.jsx";
 import Register from "../pages/register.jsx";
@@ -31,6 +31,7 @@ export default function AppRouter(){
             <Route path="/perfil" element={<Perfil/>}/>
             <Route path="/admin" element={<AdminPanel/>}/>
             <Route path="/admin/pastel/editar/:id" element={<FormularioPastel/>}/>
+            <Route path="/admin/pastel/nuevo" element={<FormularioPastel />} />
         </Routes>
     );
 }
