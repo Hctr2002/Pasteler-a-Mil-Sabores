@@ -1,33 +1,38 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useProfile } from "../contexts/ProfileContext";
+import { authService } from "../services/authService";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const navigate = useNavigate();
   const { updateProfile } = useProfile();
-  const [storedUser] = useLocalStorage("ds_user", null);
 
   const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-
-    if (form.email === "admin@pasteleria.com" && form.password === "admin123") {
+    
+    setLoading(true);
+    try {
+      const response = await authService.login(form.email, form.password);
+      
+      // Actualizar el perfil con los datos del login (sin mostrar toast)
       updateProfile({
-        nombre: "Administrador",
-        email: form.email,
-        admin: true,
-      });
+        nombre: response.data.nombre,
+        email: response.data.email,
+        telefono: response.data.telefono || "",
+        direccion: response.data.direccion || "",
+        admin: response.data.admin || false
+      }, false); // false = no mostrar toast de "perfil actualizado"
 
-      toast.success("Bienvenido, Administrador", {
+      toast.success("Inicio de sesión exitoso", {
         position: "bottom-center",
         autoClose: 1400,
         hideProgressBar: true,
@@ -35,39 +40,16 @@ export default function Login() {
           navigate("/");
         },
       });
-      return; 
+    } catch (error) {
+      console.error('Error al iniciar sesión:', error);
+      const message = error.response?.data?.message || 'Credenciales incorrectas';
+      toast.error(message, {
+        position: "bottom-center",
+        autoClose: 3000,
+      });
+    } finally {
+      setLoading(false);
     }
-
-    if (!storedUser) {
-      setError("No hay usuario registrado. Regístrate para continuar.");
-      return;
-    }
-
-    const isValid =
-      form.email === storedUser.email && form.password === storedUser.password;
-
-    if (!isValid) {
-      setError("Credenciales incorrectas. Revisa tu correo y contraseña.");
-      return;
-    }
-
-    setError("");
-    updateProfile({
-      nombre: storedUser.nombre ?? "",
-      email: storedUser.email,
-      telefono: storedUser.telefono ?? "",
-      direccion: storedUser.direccion ?? "",
-      admin: false,
-    });
-
-    toast.success("Inicio de sesión exitoso", {
-      position: "bottom-center",
-      autoClose: 1400,
-      hideProgressBar: true,
-      onClose: () => {
-        navigate("/");
-      },
-    });
   };
 
   return (
@@ -83,6 +65,7 @@ export default function Login() {
           value={form.email}
           onChange={handleChange}
           required
+          disabled={loading}
           style={{ width: "100%", marginBottom: "0.75rem" }}
         />
         <label htmlFor="password">Contraseña</label>
@@ -94,17 +77,13 @@ export default function Login() {
           value={form.password}
           onChange={handleChange}
           required
+          disabled={loading}
           style={{ width: "100%", marginBottom: "1rem" }}
         />
-        <button type="submit" style={{ width: "100%" }}>
-          Ingresar
+        <button type="submit" style={{ width: "100%" }} disabled={loading}>
+          {loading ? "Ingresando..." : "Ingresar"}
         </button>
       </form>
-      {error && (
-        <p style={{ color: "red", marginTop: "0.75rem" }} role="alert">
-          {error}
-        </p>
-      )}
       <div style={{ marginTop: "1rem", textAlign: "center" }}>
         <span>¿No tienes cuenta? </span>
         <Link to="/register">Regístrate ahora</Link>

@@ -8,9 +8,11 @@ export default function Carrito(){
     const [metodo, setMetodo] = useState('Efectivo');
     const [message, setMessage] = useState('');
 
-    const handleCheckout = () => {
+    const handleCheckout = async () => {
         const fecha = new Date().toISOString();
-        const id = checkout({fecha, metodo});
+        // Convertir método a minúsculas para que coincida con el backend
+        const metodoLowerCase = metodo.toLowerCase();
+        const id = await checkout({fecha, metodo: metodoLowerCase});
         if(id){
             setMessage(`Orden creada: ${id}`);
         } else {
