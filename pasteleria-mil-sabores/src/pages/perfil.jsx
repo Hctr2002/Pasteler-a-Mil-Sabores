@@ -117,6 +117,17 @@ const Perfil = () => {
                         {new Date(order.fecha).toLocaleString()}
                       </span>
                     </div>
+                    {profile?.admin && order.profile && (
+                      <div className="order-customer" style={{ marginTop: 6, marginBottom: 6 }}>
+                        <strong>Cliente:</strong>{' '}
+                        {(order.profile.nombre || order.profile.name) ? (
+                          <span>{order.profile.nombre || order.profile.name}</span>
+                        ) : null}
+                        {order.profile.email ? (
+                          <span>{(order.profile.nombre || order.profile.name) ? ' · ' : ''}{order.profile.email}</span>
+                        ) : null}
+                      </div>
+                    )}
                     <div className="order-body">
                       <p><strong>Total:</strong> ${order.total.toLocaleString()}</p>
                       <p><strong>Método de pago:</strong> {order.metodo}</p>
