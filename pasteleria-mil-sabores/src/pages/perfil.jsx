@@ -22,18 +22,21 @@ const Perfil = () => {
       if (token && profile?.email) {
         try {
           setLoadingOrders(true);
-          const response = await orderService.getMine();
+          // Si el usuario es admin, obtener todas las órdenes; si no, solo las propias
+          const response = profile?.admin ? await orderService.getAll() : await orderService.getMine();
           console.log('Órdenes recibidas del backend:', response.data);
+
           // Transformar las órdenes del backend al formato esperado por el frontend
           const formattedOrders = response.data.map(order => ({
-            id: order.orderId,
+            id: order.orderId || order.id,
             items: order.items,
             total: order.total,
             fecha: order.fecha || order.createdAt,
             metodo: order.metodo,
             estado: order.estado,
-            profile: order.profile
+            profile: order.profile || order.user || null
           }));
+
           console.log('Órdenes formateadas:', formattedOrders);
           setOrders(formattedOrders);
         } catch (error) {
