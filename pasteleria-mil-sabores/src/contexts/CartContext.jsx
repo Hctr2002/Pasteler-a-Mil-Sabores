@@ -22,9 +22,6 @@ export function CartProvider({ children }) {
         const token = localStorage.getItem("token");
         if (!token || !initialized || !profile?.email) return;
 
-        // No sincronizar si el carrito está vacío
-        if (!cartToSync || cartToSync.length === 0) return;
-
         try {
             // Convertir formato del frontend al backend
             const backendFormat = cartToSync.map(item => ({
@@ -105,10 +102,8 @@ export function CartProvider({ children }) {
     // Sincronizar carrito cuando cambie (solo si está inicializado y debe sincronizar)
     useEffect(() => {
         if (shouldSync && initialized && profile?.email) {
-            // Solo sincronizar si realmente hay cambios que sincronizar
-            if (cart.length > 0) {
-                syncCartToBackend(cart);
-            }
+            // Sincronizar siempre, incluso si el carrito está vacío (para eliminar items del backend)
+            syncCartToBackend(cart);
             setShouldSync(false);
         }
     }, [shouldSync, initialized, profile?.email, syncCartToBackend, cart]);
