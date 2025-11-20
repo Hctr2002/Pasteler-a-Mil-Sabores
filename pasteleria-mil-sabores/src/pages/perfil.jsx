@@ -13,6 +13,7 @@ const Perfil = () => {
   const [activeSection, setActiveSection] = useState("info");
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(false);
+  const [updatingOrder, setUpdatingOrder] = useState(null);
   const navigate = useNavigate();
 
   // Cargar órdenes desde el backend cuando el usuario esté autenticado
@@ -57,6 +58,31 @@ const Perfil = () => {
     clearLocalCart(); // Limpiar carrito local antes de cerrar sesión
     logout();
     navigate("/");
+  };
+
+  const handleStatusChange = async (orderId, newStatus) => {
+    try {
+      setUpdatingOrder(orderId);
+      
+      console.log('Order ID recibido:', orderId, 'Tipo:', typeof orderId);
+      
+      await orderService.updateStatus(orderId, newStatus);
+      
+      // Actualizar el estado local del pedido
+      setOrders(prevOrders => 
+        prevOrders.map(order => 
+          order.id === orderId ? { ...order, estado: newStatus } : order
+        )
+      );
+      
+      console.log(`Estado del pedido ${orderId} actualizado a ${newStatus}`);
+    } catch (error) {
+      console.error('Error al actualizar estado del pedido:', error);
+      console.error('Detalles del error:', error.response?.data);
+      alert(`Error: ${error.response?.data?.message || 'No se pudo actualizar el estado'}`);
+    } finally {
+      setUpdatingOrder(null);
+    }
   };
 
   return (
@@ -134,6 +160,37 @@ const Perfil = () => {
                       <p><strong>Total:</strong> ${order.total.toLocaleString()}</p>
                       <p><strong>Método de pago:</strong> {order.metodo}</p>
                       <p><strong>Estado:</strong> {order.estado || 'pendiente'}</p>
+                      {profile?.admin && (
+                        <div className="order-status-controls" style={{ marginTop: '1rem' }}>
+                          <label htmlFor={`status-${order.id}`} style={{ marginRight: '0.5rem', fontWeight: 'bold' }}>
+                            Cambiar estado:
+                          </label>
+                          <select
+                            id={`status-${order.id}`}
+                            value={order.estado || 'pendiente'}
+                            onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                            disabled={updatingOrder === order.id}
+                            style={{
+                              padding: '0.5rem',
+                              borderRadius: '6px',
+                              border: '1px solid #d5b896',
+                              backgroundColor: '#fffdf9',
+                              color: '#4a3324',
+                              cursor: updatingOrder === order.id ? 'wait' : 'pointer'
+                            }}
+                          >
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en_proceso">En proceso</option>
+                            <option value="completado">Completado</option>
+                            <option value="cancelado">Cancelado</option>
+                          </select>
+                          {updatingOrder === order.id && (
+                            <span style={{ marginLeft: '0.5rem', fontSize: '0.9rem', color: '#8b4513' }}>
+                              Actualizando...
+                            </span>
+                          )}
+                        </div>
+                      )}
                       {order.items && order.items.length > 0 && (
                         <div className="order-items">
                           <p><strong>Productos:</strong></p>
