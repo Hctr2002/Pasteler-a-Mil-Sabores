@@ -16,6 +16,17 @@ const Perfil = () => {
   const [updatingOrder, setUpdatingOrder] = useState(null);
   const navigate = useNavigate();
 
+  // Función para formatear el estado para mostrar
+  const formatEstado = (estado) => {
+    const estados = {
+      'pendiente': 'Pendiente',
+      'en_proceso': 'En proceso',
+      'completado': 'Completado',
+      'cancelado': 'Cancelado'
+    };
+    return estados[estado] || estado;
+  };
+
   // Cargar órdenes desde el backend cuando el usuario esté autenticado
   useEffect(() => {
     const loadOrders = async () => {
@@ -52,7 +63,7 @@ const Perfil = () => {
     if (activeSection === "pedidos") {
       loadOrders();
     }
-  }, [activeSection, profile?.email]);
+  }, [activeSection, profile?.admin, profile?.email]);
 
   const handleLogout = () => {
     clearLocalCart(); // Limpiar carrito local antes de cerrar sesión
@@ -159,7 +170,7 @@ const Perfil = () => {
                     <div className="order-body">
                       <p><strong>Total:</strong> ${order.total.toLocaleString()}</p>
                       <p><strong>Método de pago:</strong> {order.metodo}</p>
-                      <p><strong>Estado:</strong> {order.estado || 'pendiente'}</p>
+                      <p><strong>Estado:</strong> {formatEstado(order.estado || 'pendiente')}</p>
                       {profile?.admin && (
                         <div className="order-status-controls" style={{ marginTop: '1rem' }}>
                           <label htmlFor={`status-${order.id}`} style={{ marginRight: '0.5rem', fontWeight: 'bold' }}>

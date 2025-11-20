@@ -1,12 +1,13 @@
-import { pasteles } from "../utils/mockPasteles";
 import { PastelCard } from "../components/PastelCard";
 import { useState } from "react";
+import { usePasteles } from "../contexts/PastelesContext";
 import '../styles/theme.css';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [query, setQuery] = useState("");
+  const { pasteles, loading } = usePasteles();
 
   // Filtra los pasteles según la búsqueda
   const resultados = pasteles.filter(p =>
@@ -47,14 +48,16 @@ export default function Home() {
             : "Destacados de hoy"}
         </h4>
 
-        {mostrarPasteles.length > 0 ? (
+        {loading ? (
+          <p>Cargando pasteles...</p>
+        ) : mostrarPasteles.length > 0 ? (
           mostrarPasteles.map(p => (
             <div className="col-12 col-md-6 col-xl-4" key={p.id}>
               <PastelCard pastel={p} />
             </div>
           ))
         ) : (
-          <p>No se encontraron pasteles con ese nombre 😢</p>
+          <p>No se encontraron pasteles con ese nombre</p>
         )}
         <ToastContainer />
       </div>
