@@ -850,20 +850,21 @@ input {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1rem;
 }
 
 .perfil-sidebar h3 {
   font-size: 1.2rem;
   color: #8b4513;
   font-weight: 800;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .perfil-sidebar ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-grow: 0;
 }
 
 .perfil-sidebar li {
@@ -898,7 +899,7 @@ input {
   border-radius: 10px !important;
   box-shadow: 0 6px 18px rgba(139, 69, 19, 0.12);
   transition: transform 0.08s ease, box-shadow 0.12s ease;
-  margin-top: 1rem;
+  margin-top: auto;
 }
 
 .btn-logout-modern:hover {

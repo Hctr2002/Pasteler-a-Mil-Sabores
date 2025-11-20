@@ -47,7 +47,7 @@ export default function Catalogo() {
                 ))}
               </div>
             ) : (
-              <p>No hay pasteles que coincidan con los filtros seleccionados 😢</p>
+              <p>No hay pasteles que coincidan con los filtros seleccionados</p>
             )}
           </div>
         </div>

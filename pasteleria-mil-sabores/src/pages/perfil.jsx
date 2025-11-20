@@ -81,10 +81,12 @@ const Perfil = () => {
               <Link to="/admin" className="admin-link">Panel de Administración</Link>
             </li>
           )}
+          <li>
+            <Button className="btn-logout-modern" onClick={handleLogout}>
+              Cerrar sesión
+            </Button>
+          </li>
         </ul>
-        <Button className="btn-logout-modern" onClick={handleLogout}>
-          Cerrar sesión
-        </Button>
       </aside>
       <section className="perfil-main">
         {activeSection === "info" && (
