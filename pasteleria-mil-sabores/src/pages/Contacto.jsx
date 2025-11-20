@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { contactService } from '../services/contactService';
 import '../styles/theme.css';
 
 function Contacto() {
-  // 1. ACTUALIZAMOS LAS CLAVES DEL ESTADO para que coincidan con los 'name' de los inputs
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,27 +21,19 @@ function Contacto() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const webhookUrl = "https://hctr2002.app.n8n.cloud/webhook/b5347eb2-272c-4175-ac50-381a86b38139";
-
     try {
-      const response = await fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await contactService.sendMessage(formData);
 
-      if (response.ok) {
+      if (response.success) {
         toast.success('¡Gracias! Nos contactaremos contigo lo antes posible.');
-        // 2. Limpiamos el formulario con las claves correctas
         setFormData({ name: '', email: '', message: '' });
       } else {
-        toast.error('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+        toast.error(response.message || 'Hubo un error al enviar el mensaje.');
       }
     } catch (error) {
-      toast.error('Hubo un error de red. Por favor, revisa tu conexión.');
       console.error('Error al enviar el formulario:', error);
+      const errorMessage = error.response?.data?.message || 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.';
+      toast.error(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
